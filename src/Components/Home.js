@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UnsignedInNav from './UnsignedInNav';
 import Footer from './Footer';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 
 class Home extends Component {
@@ -60,11 +60,11 @@ class Home extends Component {
                                             <TabPane tabId="1">
                                                 <Row>
                                                 <Col sm="12">
-                                                    <div class="tab-pane fade show active" id="pills-name" role="tabpanel" aria-labelledby="pills-name-tab">
-                                                        <div class="input-group mb-3">
-                                                            <input type="text" class="form-control inputSearch" placeholder="Search business by name ..." aria-label="pills-name-input" aria-describedby="basic-addon2" />
-                                                            <div class="input-group-append">
-                                                                <button class="btn btn-outline-secondary btnSearch" type="button">Search</button>
+                                                    <div className="tab-pane fade show active" id="pills-name" role="tabpanel" aria-labelledby="pills-name-tab">
+                                                        <div className="input-group mb-3">
+                                                            <input type="text" className="form-control inputSearch" placeholder="Search business by name ..." aria-label="pills-name-input" aria-describedby="basic-addon2" />
+                                                            <div className="input-group-append">
+                                                                <button className="btn btn-outline-secondary btnSearch" type="button">Search</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -74,11 +74,11 @@ class Home extends Component {
                                             <TabPane tabId="2">
                                                 <Row>
                                                 <Col sm="12">
-                                                    <div class="tab-pane fade show active" id="pills-name" role="tabpanel" aria-labelledby="pills-name-tab">
-                                                        <div class="input-group mb-3">
-                                                            <input type="text" class="form-control inputSearch" placeholder="Search business by location ..." aria-label="pills-name-input" aria-describedby="basic-addon2" />
-                                                            <div class="input-group-append">
-                                                                <button class="btn btn-outline-secondary btnSearch" type="button">Search</button>
+                                                    <div className="tab-pane fade show active" id="pills-name" role="tabpanel" aria-labelledby="pills-name-tab">
+                                                        <div className="input-group mb-3">
+                                                            <input type="text" className="form-control inputSearch" placeholder="Search business by location ..." aria-label="pills-name-input" aria-describedby="basic-addon2" />
+                                                            <div className="input-group-append">
+                                                                <button className="btn btn-outline-secondary btnSearch" type="button">Search</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -88,11 +88,11 @@ class Home extends Component {
                                             <TabPane tabId="3">
                                                 <Row>
                                                 <Col sm="12">
-                                                    <div class="tab-pane fade show active" id="pills-name" role="tabpanel" aria-labelledby="pills-name-tab">
-                                                        <div class="input-group mb-3">
-                                                            <input type="text" class="form-control inputSearch" placeholder="Search business by category ..." aria-label="pills-name-input" aria-describedby="basic-addon2" />
-                                                            <div class="input-group-append">
-                                                                <button class="btn btn-outline-secondary btnSearch" type="button">Search</button>
+                                                    <div className="tab-pane fade show active" id="pills-name" role="tabpanel" aria-labelledby="pills-name-tab">
+                                                        <div className="input-group mb-3">
+                                                            <input type="text" className="form-control inputSearch" placeholder="Search business by category ..." aria-label="pills-name-input" aria-describedby="basic-addon2" />
+                                                            <div className="input-group-append">
+                                                                <button className="btn btn-outline-secondary btnSearch" type="button">Search</button>
                                                             </div>
                                                         </div>
                                                     </div>

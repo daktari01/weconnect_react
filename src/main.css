@@ -1,9 +1,10 @@
 body, html{
     height: 100%;
+    margin: 0;
 }
 
-body { 
-    margin: 0;
+body{
+    padding-bottom: 50px;
 }
 
 .footer > .container > .row {
@@ -13,7 +14,7 @@ body {
 #body {
     background-image: url("./static/img/backgrounds/office-bg.jpg");
     background-color: #dcdcdc;
-    height: 100vh; 
+    height: 95vh; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -40,7 +41,6 @@ body {
     justify-content: space-around;
     display: flex;
     float: none;
-    
 }
 #loginContainer form{
     background-color: white;
@@ -184,7 +184,7 @@ hr {
 footer {
     border-top: 2px solid;
     border-color: #2980ba;
-    position: absolute;
+    position: relative;
     text-align: center;
     bottom: 0;
     width: 100%;

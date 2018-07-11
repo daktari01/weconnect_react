@@ -3,7 +3,7 @@ import UnsignedInNav from './UnsignedInNav';
 import Footer from './Footer';
 import signInLogo from '../static/img/logos/weConnect.png'
 
-class UserSignIn extends Component {
+class ResetPassword extends Component {
     render(){
         return(
             <div>
@@ -16,17 +16,13 @@ class UserSignIn extends Component {
                                     <img className="img-fluid" alt="logo" src={signInLogo}/>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="loginEmail">Username</label>
-                                    <input type="text" className="form-control" id="loginUsernameInput" placeholder="Enter username"/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="loginPassword">Password</label>
-                                    <input type="password" className="form-control" id="loginPasswordInput" placeholder="Password"/>
+                                    <label htmlFor="loginEmail">Email</label>
+                                    <input type="text" className="form-control" id="loginEmailInput" placeholder="Enter email to reset password"/>
                                 </div>
                                 <br />
-                                <button type="submit" className="btn btn-primary btn-block">Login</button>
+                                <button type="submit" className="btn btn-primary btn-block">Send</button>
                                 <br />
-                                <p>Do not have an account? <a href="/register">Register</a></p>
+                                <p>Go to your email address to get instructions on resetting your password.</p>
                             </form>
                         </div>
                     </div>
@@ -37,4 +33,4 @@ class UserSignIn extends Component {
     }
 }
 
-export default UserSignIn;
+export default ResetPassword;

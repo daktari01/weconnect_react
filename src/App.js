@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './static/img/logos/weConnect.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserRegistration from './Components/UserRegistration';
 import UserSignIn from './Components/UserSignIn';

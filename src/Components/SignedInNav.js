@@ -7,9 +7,11 @@ class SignedInNav extends Component{
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-faded">
                 <a class="navbar-brand" href="#">
-                    <img src={logo} class="logo" />
+                    <img src={logo} class="logo" alt="WeConnect logo"/>
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                    data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div id="navbarNavDropdown" class="navbar-collapse collapse">
