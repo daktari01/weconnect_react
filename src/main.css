@@ -14,7 +14,7 @@ body{
 #body {
     background-image: url("./static/img/backgrounds/office-bg.jpg");
     background-color: #dcdcdc;
-    height: 95vh; 
+    min-height: 100vh; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -179,7 +179,7 @@ hr {
     border-color: #2980ba;
 }
 .searchContainer{
-    min-height: 90vh;
+    /* min-height: 90vh; */
 }
 footer {
     border-top: 2px solid;

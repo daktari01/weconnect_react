@@ -52,7 +52,7 @@ class UserRegistration extends Component {
                         <div className="wrapper" id="loginWrapper">
                             <form>
                                 <div className="col-sm-12" id="loginLogo">
-                                    <img className="img-fluid" alt="logo" src={signInLogo} 
+                                    <img className="img-fluid" src={signInLogo} 
                                         alt="WeConnect logo"/>
                                 </div>
                                 <div className="form-group">
