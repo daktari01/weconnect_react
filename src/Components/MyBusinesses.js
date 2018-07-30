@@ -3,7 +3,6 @@ import axios from 'axios';
 import SignedInNav from './SignedInNav';
 import Footer from './Footer';
 import SingleBusiness from './SingleBusiness';
-import company_logo from '../static/img/logos/weConnectCircle.png';
 
 class MyBusinesses extends Component {
     state = {

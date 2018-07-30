@@ -6,7 +6,7 @@ class SignedInNav extends Component{
         return(
         <div className="container">
             <nav className="navbar navbar-expand-lg navbar-light bg-faded">
-                <a className="navbar-brand" href="#">
+                <a className="navbar-brand" href="/">
                     <img src={logo} className="logo" alt="WeConnect logo"/>
                 </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" 
@@ -17,7 +17,7 @@ class SignedInNav extends Component{
                 <div id="navbarNavDropdown" className="navbar-collapse collapse">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
-                            <a className="nav-link" href="register_business.html">Register business <span className="sr-only">(current)</span></a>
+                            <a className="nav-link" href="/register-business">Register business <span className="sr-only">(current)</span></a>
                         </li>
                     </ul>
                     <ul className="navbar-nav">
