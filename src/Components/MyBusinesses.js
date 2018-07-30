@@ -20,6 +20,7 @@ class MyBusinesses extends Component {
                 console.log(error)
              })
     }
+    
     render() {
         const { businesses } = this.state;
         const business = businesses.map((business) => <SingleBusiness business={business} key={business.id} />);
