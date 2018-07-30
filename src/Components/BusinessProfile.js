@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import SignedInNav from "./SignedInNav";
 import Footer from "./Footer";
 import company_logo from "../static/img/logos/weConnectCircle.png";
@@ -75,14 +75,14 @@ class BusinessProfile extends Component {
                 >
                   Add a Review
                 </a>
-                <a
-                  href="update_business.html"
+                <Link
+                  to={"/update-business/"+business.id}
                   className="btn btn-primary review-button"
                 >
-                  Update Profile
-                </a>
+                  Update Business
+                </Link>
                 <a href="#" className="btn btn-danger review-button">
-                  Delete Profile
+                  Delete Business
                 </a>
               </div>
               {/* <!-- Review Modal --> */}

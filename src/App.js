@@ -5,6 +5,7 @@ import UserSignIn from './Components/UserSignIn';
 import MyBusinesses from './Components/MyBusinesses';
 import BusinessProfile from './Components/BusinessProfile';
 import RegisterBusiness from './Components/RegisterBusiness';
+import UpdateBusinessProfile from './Components/UpdateBusinessProfile';
 import { PrivateRoute } from './utilities/privateRoute';
 import './main.css';
 import {Route} from 'react-router-dom'
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path='/my-businesses' component={MyBusinesses}/>
           <Route path='/register-business' component={RegisterBusiness}/>
           <Route path='/business/:id' component={BusinessProfile}/>
+          <Route path='/update-business/:id' component={UpdateBusinessProfile}/>
           {/* <PrivateRoute path='/my-businesses' component={MyBusinesses}/>
           <PrivateRoute path='/register-business' component={RegisterBusiness}/>
           <PrivateRoute path='/business-profile' component={BusinessProfile} /> */}
