@@ -65,8 +65,8 @@ body {
   margin-bottom: 15px;
 }
 #user_avatar {
-  max-height: 100px;
-  max-width: 100px;
+  max-height: 75px;
+  max-width: 75px;
 }
 #user_holder,
 #reviews {
