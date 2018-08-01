@@ -34,20 +34,12 @@ class UserSignIn extends Component {
       .then(response => {
         appAuth.authenticate();
         localStorage.setItem("access_token", response.data.token);
+        toast.success("Login successful");
         this.setState({ fireRedirect: true });
-        // toast.success(() => {
-        //   <div>
-        //     <p>response.data</p>
-        //   </div>;
-        // });
       })
       .catch(error => {
-        console.log(error);
-        // toast(() => {
-        //   <div>
-        //     <p>error</p>
-        //   </div>;
-        // });
+        console.log(error.data);
+        toast.error("Login unsuccessful. Please try again");
       });
   };
 

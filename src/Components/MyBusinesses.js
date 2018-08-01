@@ -22,7 +22,6 @@ class MyBusinesses extends Component {
       .then(response => {
         const businesses = response.data.businesses;
         this.setState({ businesses });
-        console.log(businesses);
       })
       .catch(error => {
         console.log(error);
@@ -34,51 +33,84 @@ class MyBusinesses extends Component {
     });
   }
 
+  handleSearch = event => {
+    event.preventDefault();
+    const name = event.target.elements.businessName.value;
+    const search_item = event.target.elements.search_item.value;
+    let search_by = "";
+
+    if (search_item === "name") {
+      search_by = "q";
+    } else if (search_item === "location") {
+      search_by = "location";
+    } else {
+      search_by = "category";
+    }
+
+    axios
+      .get(`http://localhost:5000/api/v2/businesses?${search_by}=${name}`)
+      .then(response => {
+        const businesses = response.data.businesses;
+        this.setState({ businesses });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   render() {
     return (
       <div>
         <section id="body">
           <SignedInNav />
           <div className="container">
-
             {/* <!-- Search bar --> */}
             <div className="row" id="search_business">
-              <div className="input-group">
-                <select className="custom-select" id="inputGroupSelectBusiness">
-                  <option selected>Search by ...</option>
-                  <option value="1">Business Name</option>
-                  <option value="2">Business Location</option>
-                  <option value="3">Business Category</option>
-                </select>
-                <input
-                  type="text"
-                  id="search_input"
-                  className="form-control"
-                  placeholder="Enter Search Text"
-                />
-                <div className="input-group-append">
-                  <button
-                    className="btn btn-outline-secondary"
-                    id="btn_search_business"
-                    type="button"
+              <form className="flex-grow" onSubmit={this.handleSearch}>
+                <div className="input-group">
+                  <select
+                    className="custom-select"
+                    id="inputGroupSelectBusiness"
+                    name="search_item"
                   >
-                    Search
-                  </button>
+                    <option value="name">Business Name</option>
+                    <option value="location">Business Location</option>
+                    <option value="category">Business Category</option>
+                  </select>
+
+                  <input
+                    type="text"
+                    id="search_input"
+                    name="businessName"
+                    className="form-control"
+                    placeholder="Enter Search Text"
+                  />
+                  <div className="input-group-append">
+                    <button
+                      className="btn btn-outline-secondary"
+                      id="btn_search_business"
+                      type="submit"
+                    >
+                      Search
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
             {/* <!-- Search items --> */}
             <div className="row">
-            {this.state.pageOfItems.map(business => (
-              <SingleBusiness business={business} key={business.id} />
-            ))}
+              {this.state.pageOfItems.map(business => (
+                <SingleBusiness business={business} key={business.id} />
+              ))}
             </div>
           </div>
           <br />
-          <div>
+          <div className="row mypagination h-100 justify-content-center align-items-center">
             <JwPagination
               items={this.state.businesses}
               onChangePage={this.onChangePage}
+              pageSize={6}
+              style="margin: 0px 10px 10px 10px;padding: 0px;display: inline-block;"
             />
           </div>
         </section>

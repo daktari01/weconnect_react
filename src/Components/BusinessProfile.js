@@ -6,10 +6,12 @@ import SignedInNav from "./SignedInNav";
 import Footer from "./Footer";
 import SingleReview from "./SingleReview";
 import company_logo from "../static/img/logos/weConnectCircle.png";
+import JwPagination from "jw-react-pagination";
 
 class BusinessProfile extends Component {
   constructor(props) {
     super(props);
+    this.onChangePage = this.onChangePage.bind(this);
     this.state = {
       reviews: [],
       modal: false,
@@ -61,6 +63,11 @@ class BusinessProfile extends Component {
       this.setState({ logged_in: true });
     }
   }
+  onChangePage(pageOfItems) {
+    this.setState({
+      pageOfItems
+    });
+  }
   deleteToggle() {
     this.setState({
       deleteModal: !this.state.deleteModal
@@ -99,7 +106,8 @@ class BusinessProfile extends Component {
       )
       .then(response => {
         console.log(response.data);
-        return <Redirect to={"/business/" + businessId} />;
+        const path = this.props.history.location.pathname;
+        this.props.history.replace(path);
       })
       .catch(error => {
         console.log(error);
@@ -111,16 +119,13 @@ class BusinessProfile extends Component {
     event.preventDefault();
     const access_token = localStorage.getItem("access_token");
     axios
-      .delete(
-        "http://localhost:5000/api/v2/businesses/" + businessId,
-        {
-          headers: {
-            Accept: "application/json",
-            "Content-type": "application/json",
-            "x-access-token": access_token
-          }
+      .delete("http://localhost:5000/api/v2/businesses/" + businessId, {
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json",
+          "x-access-token": access_token
         }
-      )
+      })
       .then(response => {
         console.log(response.data);
         return <Redirect to={"/my-businesses"} />;
@@ -128,7 +133,7 @@ class BusinessProfile extends Component {
       .catch(error => {
         console.log(error);
       });
-      this.deleteToggle();
+    this.deleteToggle();
   };
   render() {
     const { business, reviews } = this.state;
@@ -289,10 +294,7 @@ class BusinessProfile extends Component {
                     >
                       Delete {business.name}
                     </Button>{" "}
-                    <Button
-                      color="primary"
-                      onClick={this.deleteToggle}
-                    >
+                    <Button color="primary" onClick={this.deleteToggle}>
                       Cancel
                     </Button>
                   </ModalFooter>
@@ -300,6 +302,17 @@ class BusinessProfile extends Component {
                 <div className="col-sm-8 " id="reviews">
                   <h3>Reviews for {business.name}</h3>
                   {review}
+                  {/* <div>
+                  {this.state.pageOfItems.map(review => (
+                    <SingleReview review={review} key={review.review_id} />
+                  ))}
+                  </div>
+                  <JwPagination
+                    items={this.state.reviews}
+                    onChangePage={this.onChangePage}
+                    pageSize={3}
+                    style="margin: 0px 10px 10px 10px;padding: 0px;display: inline-block;"
+                  /> */}
                 </div>
               </div>
             </div>
