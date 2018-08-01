@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import UnsignedInNav from './UnsignedInNav';
 import Footer from './Footer';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
@@ -13,6 +15,10 @@ class Home extends Component {
           activeTab: '1'
         };
       }
+    // componentDidMount(){
+    //     console.log('kjkkjjkjk');
+    //     toast.success('succes');
+    // }
     
       toggle(tab) {
         if (this.state.activeTab !== tab) {
@@ -105,7 +111,7 @@ class Home extends Component {
                         </div>
                     </div>
                 </section>
-                <Footer />  
+                <Footer /> 
             </div> 
         );
     }

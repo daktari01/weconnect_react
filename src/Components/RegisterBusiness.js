@@ -11,8 +11,10 @@ class RegisterBusiness extends Component {
     businessCategory: "travel",
     businessLocation: "",
     webAddress: "",
+    businessId: "",
     fireRedirect: false
   };
+  
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -40,7 +42,7 @@ class RegisterBusiness extends Component {
       })
       .then(response => {
         console.log(response.data);
-        this.setState({ fireRedirect: true });
+        this.setState({ businessId:response.data.id, fireRedirect: true });
       })
       .catch(error => {
         console.log(error);
@@ -48,7 +50,6 @@ class RegisterBusiness extends Component {
   };
   render() {
     const { fireRedirect } = this.state;
-    const businessId = this.props.match.params.id;
     return (
       <div>
         <section id="body">
@@ -145,7 +146,7 @@ class RegisterBusiness extends Component {
           </div>
         </section>
         <Footer />
-        {fireRedirect && <Redirect to={"/business/" + businessId} />}
+        {fireRedirect && <Redirect to={"/business/" + this.state.businessId} />}
       </div>
     );
   }

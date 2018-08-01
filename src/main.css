@@ -6,6 +6,7 @@ html {
 
 body {
   padding-bottom: 50px;
+  z-index: 0;
 }
 
 .footer > .container > .row {

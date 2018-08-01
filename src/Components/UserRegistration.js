@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { toast } from 'react-toastify';
 import { Redirect } from "react-router-dom";
 import UnsignedInNav from "./UnsignedInNav";
 import Footer from "./Footer";
@@ -14,25 +15,7 @@ class UserRegistration extends Component {
     password: "",
     confirmPassword: ""
   };
-//   createNotification = (type) => {
-//     return () => {
-//       switch (type) {
-//         case 'info':
-//           NotificationManager.info('Info message');
-//           break;
-//         case 'success':
-//           NotificationManager.success('Success message', 'Title here');
-//           break;
-//         case 'warning':
-//           NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
-//           break;
-//         case 'error':
-//           NotificationManager.error('Error message', 'Click me!', 5000, () => {
-//             alert('callback');
-//           });
-//           break;
-//       }
-//     };
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -60,6 +43,11 @@ class UserRegistration extends Component {
       })
       .then(response => {
         console.log(response.data);
+        toast.success(()=>{
+            <div>
+                <p>response.data</p>
+            </div>
+        })
         return <Redirect to="/login" />;
       })
       .catch(error => {

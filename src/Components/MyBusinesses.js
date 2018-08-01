@@ -3,11 +3,18 @@ import axios from "axios";
 import SignedInNav from "./SignedInNav";
 import Footer from "./Footer";
 import SingleBusiness from "./SingleBusiness";
+import JwPagination from "jw-react-pagination";
 
 class MyBusinesses extends Component {
-  state = {
-    businesses: []
-  };
+  constructor(props) {
+    super(props);
+    this.onChangePage = this.onChangePage.bind(this);
+    this.state = {
+      businesses: [],
+      pageOfItems: []
+    };
+  }
+
   componentDidMount() {
     // axios.get("http://daktari01-weconnect.herokuapp.com/api/v2/businesses")
     axios
@@ -21,17 +28,19 @@ class MyBusinesses extends Component {
         console.log(error);
       });
   }
+  onChangePage(pageOfItems) {
+    this.setState({
+      pageOfItems
+    });
+  }
 
   render() {
-    const { businesses } = this.state;
-    const business = businesses.map(business => (
-      <SingleBusiness business={business} key={business.id} />
-    ));
     return (
       <div>
         <section id="body">
           <SignedInNav />
           <div className="container">
+
             {/* <!-- Search bar --> */}
             <div className="row" id="search_business">
               <div className="input-group">
@@ -59,7 +68,18 @@ class MyBusinesses extends Component {
               </div>
             </div>
             {/* <!-- Search items --> */}
-            <div className="row">{business}</div>
+            <div className="row">
+            {this.state.pageOfItems.map(business => (
+              <SingleBusiness business={business} key={business.id} />
+            ))}
+            </div>
+          </div>
+          <br />
+          <div>
+            <JwPagination
+              items={this.state.businesses}
+              onChangePage={this.onChangePage}
+            />
           </div>
         </section>
         <Footer />

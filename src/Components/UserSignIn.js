@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 import { Redirect } from "react-router-dom";
 import UnsignedInNav from "./UnsignedInNav";
 import Footer from "./Footer";
@@ -34,9 +35,19 @@ class UserSignIn extends Component {
         appAuth.authenticate();
         localStorage.setItem("access_token", response.data.token);
         this.setState({ fireRedirect: true });
+        // toast.success(() => {
+        //   <div>
+        //     <p>response.data</p>
+        //   </div>;
+        // });
       })
       .catch(error => {
         console.log(error);
+        // toast(() => {
+        //   <div>
+        //     <p>error</p>
+        //   </div>;
+        // });
       });
   };
 
@@ -88,6 +99,9 @@ class UserSignIn extends Component {
                 <br />
                 <p>
                   Do not have an account? <a href="/register">Register</a>
+                </p>
+                <p>
+                  <a href="/reset-password">Forgot password?</a>
                 </p>
               </form>
             </div>
