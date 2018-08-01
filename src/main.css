@@ -72,6 +72,9 @@ body {
 #reviews {
   margin-top: 35px;
 }
+#reviews h3 {
+  color: #2980ba;
+}
 #company_logo {
   max-height: 150px;
   max-width: 150px;
@@ -113,6 +116,10 @@ body {
 #indexSearchBox > .nav-tabs {
   border-bottom: 0px solid;
 }
+#deleteBusiness{
+    position: relative;
+    right: 40%;
+}
 .inputSearch {
   color: #2980ba;
   border-color: #2980ba;
@@ -144,6 +151,9 @@ label {
 .company_name {
   padding: 10px 0 20px 0;
   text-align: center;
+  color: #2980ba;
+}
+.modal_name {
   color: #2980ba;
 }
 

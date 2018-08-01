@@ -7,6 +7,7 @@ import BusinessProfile from './Components/BusinessProfile';
 import RegisterBusiness from './Components/RegisterBusiness';
 import UpdateBusinessProfile from './Components/UpdateBusinessProfile';
 import { PrivateRoute } from './utilities/privateRoute';
+import 'react-notifications/lib/notifications.css';
 import './main.css';
 import {Route} from 'react-router-dom'
 import Home from './Components/Home'

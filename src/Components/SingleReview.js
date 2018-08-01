@@ -31,6 +31,8 @@ const SingleReview = ({ review }) => (
       </div>
       <br />
       <br />
+      <em className="text-muted">{review.date_reviewed}</em>
+      <br />
       <p>{review.review_text}</p>
       <hr />
     </div>
