@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Redirect } from "react-router-dom";
-import UnsignedInNav from "./UnsignedInNav";
+import NavBar from "./NavBar";
 import Footer from "./Footer";
 import { appAuth } from "../utilities/auth";
 import signInLogo from "../static/img/logos/weConnect.png";
+import { localApi } from "../utilities/api";
 
 class UserSignIn extends Component {
   state = {
@@ -23,9 +24,8 @@ class UserSignIn extends Component {
     const { username, password } = this.state;
     const newLogin = { username, password };
     // Make POST request
-    // axios.post('http://daktari01-weconnect.herokuapp.com/api/v2/auth/login', {newLogin})
     axios
-      .post("http://localhost:5000/api/v2/auth/login", newLogin, {
+      .post(localApi + "auth/login", newLogin, {
         headers: {
           Accept: "application/json",
           "Content-type": "application/json"
@@ -49,7 +49,7 @@ class UserSignIn extends Component {
     return (
       <div>
         <section id="body">
-          <UnsignedInNav />
+          <NavBar />
           <div className="container col-min-6" id="loginContainer">
             <div className="wrapper" id="loginWrapper">
               <form>

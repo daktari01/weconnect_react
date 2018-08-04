@@ -125,6 +125,11 @@ body {
   color: #2980ba;
   border-color: #2980ba;
 }
+.no-business{
+  text-align: center;
+  color: #2980ba;
+  padding-bottom: 40px;
+}
 
 label {
   margin-bottom: 0rem;

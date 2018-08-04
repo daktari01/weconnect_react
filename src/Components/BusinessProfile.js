@@ -2,11 +2,13 @@ import React, { Component, Fragment } from "react";
 import axios from "axios";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { Redirect, Link } from "react-router-dom";
-import SignedInNav from "./SignedInNav";
+import { toast } from "react-toastify";
+import NavBar from "./NavBar";
 import Footer from "./Footer";
 import SingleReview from "./SingleReview";
 import company_logo from "../static/img/logos/weConnectCircle.png";
 import JwPagination from "jw-react-pagination";
+import { localApi } from "../utilities/api";
 
 class BusinessProfile extends Component {
   constructor(props) {
@@ -17,7 +19,9 @@ class BusinessProfile extends Component {
       modal: false,
       deleteModal: false,
       reviewTitle: "",
-      reviewText: ""
+      reviewText: "",
+      pageOfItems: [],
+      fireRedirect: false
     };
     this.toggle = this.toggle.bind(this);
     this.deleteToggle = this.deleteToggle.bind(this);
@@ -40,15 +44,12 @@ class BusinessProfile extends Component {
       });
     // axios.get("http://daktari01-weconnect.herokuapp.com/api/v2/businesses")
     axios
-      .get(
-        "http://localhost:5000/api/v2/businesses/" + businessId + "/reviews",
-        {
-          headers: {
-            Accept: "application/json",
-            "Content-type": "application/json"
-          }
+      .get(localApi + "businesses/" + businessId + "/reviews", {
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json"
         }
-      )
+      })
       .then(response => {
         const reviews = response.data.reviews;
         this.setState({ reviews });
@@ -58,7 +59,6 @@ class BusinessProfile extends Component {
         console.log(error);
       });
     const token = localStorage.getItem("access_token");
-    console.log(localStorage.getItem("access_token"));
     if (token) {
       this.setState({ logged_in: true });
     }
@@ -93,24 +93,21 @@ class BusinessProfile extends Component {
     };
     const access_token = localStorage.getItem("access_token");
     axios
-      .post(
-        "http://localhost:5000/api/v2/businesses/" + businessId + "/reviews",
-        newReview,
-        {
-          headers: {
-            Accept: "application/json",
-            "Content-type": "application/json",
-            "x-access-token": access_token
-          }
+      .post(localApi + "businesses/" + businessId + "/reviews", newReview, {
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json",
+          "x-access-token": access_token
         }
-      )
+      })
       .then(response => {
-        console.log(response.data);
+        window.location.reload();
+        toast.success("Review posted successfully");
         const path = this.props.history.location.pathname;
         this.props.history.replace(path);
       })
       .catch(error => {
-        console.log(error);
+        toast.error("WeConnect was unable to post your review. Try again");
       });
     this.toggle();
   };
@@ -119,7 +116,7 @@ class BusinessProfile extends Component {
     event.preventDefault();
     const access_token = localStorage.getItem("access_token");
     axios
-      .delete("http://localhost:5000/api/v2/businesses/" + businessId, {
+      .delete(localApi + "businesses/" + businessId, {
         headers: {
           Accept: "application/json",
           "Content-type": "application/json",
@@ -127,23 +124,24 @@ class BusinessProfile extends Component {
         }
       })
       .then(response => {
-        console.log(response.data);
-        return <Redirect to={"/my-businesses"} />;
+        window.location.reload();
+        toast.success("Business deleted successfully");
+        this.setState({ fireRedirect: true });
       })
       .catch(error => {
-        console.log(error);
+        toast.error("WeConnect was unable to delete business. Try again");
       });
     this.deleteToggle();
   };
   render() {
-    const { business, reviews } = this.state;
+    const { business, reviews, fireRedirect } = this.state;
     const review = reviews.map(review => (
       <SingleReview review={review} key={review.review_id} />
     ));
     return (
       <div>
         <section id="body">
-          <SignedInNav />
+          <NavBar />
           {business ? (
             <div className="container white-bg">
               <div className="row my-2 top-row">
@@ -301,26 +299,38 @@ class BusinessProfile extends Component {
                 </Modal>
                 <div className="col-sm-8 " id="reviews">
                   <h3>Reviews for {business.name}</h3>
-                  {review}
-                  {/* <div>
-                  {this.state.pageOfItems.map(review => (
-                    <SingleReview review={review} key={review.review_id} />
-                  ))}
-                  </div>
+                  {this.state.pageOfItems.length > 0 ? (
+                    <div>
+                      {this.state.pageOfItems.map(review => (
+                        <SingleReview review={review} key={review.review_id} />
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="no-business white-bg">
+                      <br />
+                      <br />
+                      <br />
+                      <h4>This business has no reviews</h4>
+                    </div>
+                  )}
                   <JwPagination
                     items={this.state.reviews}
                     onChangePage={this.onChangePage}
                     pageSize={3}
                     style="margin: 0px 10px 10px 10px;padding: 0px;display: inline-block;"
-                  /> */}
+                  />
                 </div>
               </div>
             </div>
           ) : (
-            <h2>Loading ...</h2>
+            <form>
+              <h2>There are no businesses.</h2>
+              <a className="btn btn-primary" href="/register-business" />
+            </form>
           )}
         </section>
         <Footer />
+        {fireRedirect && <Redirect to={"/my-businesses"} />}
       </div>
     );
   }

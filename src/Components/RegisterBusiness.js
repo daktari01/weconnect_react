@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import SignedInNav from "./SignedInNav";
+import NavBar from "./NavBar";
 import Footer from "./Footer";
 import logo from "../static/img/logos/weConnect.png";
+import { localApi } from "../utilities/api";
 
 class RegisterBusiness extends Component {
   state = {
@@ -14,7 +15,7 @@ class RegisterBusiness extends Component {
     businessId: "",
     fireRedirect: false
   };
-  
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -31,9 +32,8 @@ class RegisterBusiness extends Component {
     };
     const access_token = localStorage.getItem("access_token");
     // Make POST request
-    // axios.post('http://daktari01-weconnect.herokuapp.com/api/v2/businesses', {newBusiness})
     axios
-      .post("http://localhost:5000/api/v2/businesses", newBusiness, {
+      .post(localApi + "businesses", newBusiness, {
         headers: {
           Accept: "application/json",
           "Content-type": "application/json",
@@ -41,8 +41,9 @@ class RegisterBusiness extends Component {
         }
       })
       .then(response => {
+        window.location.reload();
         console.log(response.data);
-        this.setState({ businessId:response.data.id, fireRedirect: true });
+        this.setState({ businessId: response.data.id, fireRedirect: true });
       })
       .catch(error => {
         console.log(error);
@@ -53,7 +54,7 @@ class RegisterBusiness extends Component {
     return (
       <div>
         <section id="body">
-          <SignedInNav />
+          <NavBar />
           <div className="container col-min-6" id="loginContainer">
             <div className="wrapper" id="loginWrapper">
               <form>

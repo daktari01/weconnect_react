@@ -6,33 +6,25 @@ import SingleBusiness from "./SingleBusiness";
 import JwPagination from "jw-react-pagination";
 import { localApi } from "../utilities/api";
 
-class MyBusinesses extends Component {
+class Businesses extends Component {
   constructor(props) {
     super(props);
     this.onChangePage = this.onChangePage.bind(this);
     this.state = {
       businesses: [],
-      pageOfItems: []
+      pageOfItems: [],
+      queryType: "q",
+      query: ""
     };
   }
 
   componentDidMount() {
-    const access_token = localStorage.getItem("access_token");
-    axios
-      .get("http://localhost:5000/api/v2/my-businesses", {
-        headers: {
-          Accept: "application/json",
-          "Content-type": "application/json",
-          "x-access-token": access_token
-        }
-      })
-      .then(response => {
-        const businesses = response.data.businesses;
-        this.setState({ businesses });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    let queryType, query;
+    if (this.props.location.searchProps) {
+      queryType = this.props.location.searchProps.queryType;
+      query = this.props.location.searchProps.query;
+    }
+    this.handleSearch(queryType, query);
   }
   onChangePage(pageOfItems) {
     this.setState({
@@ -40,29 +32,9 @@ class MyBusinesses extends Component {
     });
   }
 
-  handleSearch = event => {
-    event.preventDefault();
-    const name = event.target.elements.businessName.value;
-    const search_item = event.target.elements.search_item.value;
-    const access_token = localStorage.getItem("access_token");
-    let search_by = "";
-
-    if (search_item === "name") {
-      search_by = "q";
-    } else if (search_item === "location") {
-      search_by = "location";
-    } else {
-      search_by = "category";
-    }
-
+  handleSearch = (queryType, query) => {
     axios
-      .get(`${localApi}my-businesses?${search_by}=${name}`, {
-        headers: {
-          Accept: "application/json",
-          "Content-type": "application/json",
-          "x-access-token": access_token
-        }
-      })
+      .get(`${localApi}businesses?${queryType}=${query}`)
       .then(response => {
         const businesses = response.data.businesses;
         this.setState({ businesses });
@@ -80,14 +52,22 @@ class MyBusinesses extends Component {
           <div className="container">
             {/* <!-- Search bar --> */}
             <div className="row" id="search_business">
-              <form className="flex-grow" onSubmit={this.handleSearch}>
+              <form
+                className="flex-grow"
+                onSubmit={event => {
+                  event.preventDefault();
+                  const query = event.target.elements.businessName.value;
+                  const queryType = event.target.elements.search_item.value;
+                  this.handleSearch(queryType, query);
+                }}
+              >
                 <div className="input-group">
                   <select
                     className="custom-select"
                     id="inputGroupSelectBusiness"
                     name="search_item"
                   >
-                    <option value="name">Business Name</option>
+                    <option value="q">Business Name</option>
                     <option value="location">Business Location</option>
                     <option value="category">Business Category</option>
                   </select>
@@ -123,7 +103,7 @@ class MyBusinesses extends Component {
                 <br />
                 <br />
                 <br />
-                <h4>There are no businesses matching this query</h4>
+                <h4>There are no businesses matching this query.</h4>
               </div>
             )}
           </div>
@@ -142,4 +122,4 @@ class MyBusinesses extends Component {
     );
   }
 }
-export default MyBusinesses;
+export default Businesses;

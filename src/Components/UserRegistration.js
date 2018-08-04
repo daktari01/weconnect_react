@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import { Redirect } from "react-router-dom";
-import UnsignedInNav from "./UnsignedInNav";
+import NavBar from "./NavBar";
 import Footer from "./Footer";
 import signInLogo from "../static/img/logos/weConnect.png";
+import { localApi } from "../utilities/api";
 
 class UserRegistration extends Component {
   state = {
@@ -33,9 +34,8 @@ class UserRegistration extends Component {
       confirm_password: this.state.confirmPassword
     };
     // Make POST request
-    // axios.post('http://daktari01-weconnect.herokuapp.com/api/v2/auth/register', {newUser})
     axios
-      .post("http://localhost:5000/api/v2/auth/register", newUser, {
+      .post(localApi + "auth/register", newUser, {
         headers: {
           Accept: "application/json",
           "Content-type": "application/json"
@@ -43,15 +43,11 @@ class UserRegistration extends Component {
       })
       .then(response => {
         console.log(response.data);
-        toast.success(()=>{
-            <div>
-                <p>response.data</p>
-            </div>
-        })
+        toast.success("Registration successful");
         return <Redirect to="/login" />;
       })
       .catch(error => {
-        console.log(error);
+        toast.error("Registration unsuccessful. Please try again");
       });
   };
 
@@ -59,7 +55,7 @@ class UserRegistration extends Component {
     return (
       <div>
         <section id="body">
-          <UnsignedInNav />
+          <NavBar />
           <div className="container d-flex p-2 col-min-6" id="loginContainer">
             <div className="wrapper" id="loginWrapper">
               <form>
