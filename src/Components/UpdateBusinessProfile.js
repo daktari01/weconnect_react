@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import SignedInNav from "./SignedInNav";
+import NavBar from "./NavBar";
 import Footer from "./Footer";
 import SingleBusiness from "./SingleBusiness";
 import signInLogo from "../static/img/logos/weConnect.png";
 import logo from "../static/img/logos/weConnect.png";
 import { localApi } from "../utilities/api";
+import { toast } from "react-toastify";
 
 class UpdateBusinessProfile extends Component {
   state = {
@@ -67,11 +68,11 @@ class UpdateBusinessProfile extends Component {
         }
       })
       .then(response => {
-        console.log(response.data);
+        toast.success(newBusiness.name + " updated successfully");
         this.setState({ fireRedirect: true });
       })
       .catch(error => {
-        console.log(error);
+        toast.error("WeConnect was unable to update " + newBusiness.name);
       });
   };
   render() {
@@ -80,7 +81,7 @@ class UpdateBusinessProfile extends Component {
     return (
       <div>
         <section id="body">
-          <SignedInNav />
+          <NavBar />
           <div className="container col-min-6" id="loginContainer">
             <div className="wrapper" id="loginWrapper">
               <form>

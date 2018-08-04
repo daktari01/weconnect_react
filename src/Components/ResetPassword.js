@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import UnsignedInNav from "./UnsignedInNav";
+import NavBar from "./NavBar";
 import Footer from "./Footer";
 import signInLogo from "../static/img/logos/weConnect.png";
 
@@ -8,7 +8,7 @@ class ResetPassword extends Component {
     return (
       <div>
         <section id="body">
-          <UnsignedInNav />
+          <NavBar />
           <div className="container col-min-6" id="loginContainer">
             <div className="wrapper" id="loginWrapper">
               <form>

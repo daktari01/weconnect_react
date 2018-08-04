@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import UserRegistration from './Components/UserRegistration';
 import UserSignIn from './Components/UserSignIn';
+import Businesses from './Components/Businesses';
 import MyBusinesses from './Components/MyBusinesses';
 import BusinessProfile from './Components/BusinessProfile';
 import RegisterBusiness from './Components/RegisterBusiness';
@@ -14,6 +15,7 @@ import 'react-notifications/lib/notifications.css';
 import './main.css';
 import {Route} from 'react-router-dom'
 import Home from './Components/Home'
+import Page404 from './Components/Page404';
 
 
 class App extends Component {
@@ -24,11 +26,13 @@ class App extends Component {
           <Route path='/register' component={UserRegistration} />
           <Route path='/login' component={UserSignIn} />
           <Route path='/business-profile' component={BusinessProfile} />
+          <Route path='/businesses' component={Businesses}/>
           <Route path='/my-businesses' component={MyBusinesses}/>
           <Route path='/register-business' component={RegisterBusiness}/>
           <Route path='/business/:id' component={BusinessProfile}/>
           <Route path='/update-business/:id' component={UpdateBusinessProfile}/>
           <Route path='/reset-password' component={ResetPassword}/>
+          <Route path='/page404' component={Page404}/>
           <ToastContainer />
           {/* <PrivateRoute path='/my-businesses' component={MyBusinesses}/>
           <PrivateRoute path='/register-business' component={RegisterBusiness}/>
