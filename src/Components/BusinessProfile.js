@@ -306,7 +306,12 @@ class BusinessProfile extends Component {
                       ))}
                     </div>
                   ) : (
-                    <h2>This business has no reviews</h2>
+                    <div className="no-business white-bg">
+                      <br />
+                      <br />
+                      <br />
+                      <h4>This business has no reviews</h4>
+                    </div>
                   )}
                   <JwPagination
                     items={this.state.reviews}

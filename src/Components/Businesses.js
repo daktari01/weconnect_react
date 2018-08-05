@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 import SingleBusiness from "./SingleBusiness";
 import JwPagination from "jw-react-pagination";
-import {localApi} from '../utilities/api';
+import { localApi } from "../utilities/api";
 
 class Businesses extends Component {
   constructor(props) {
@@ -14,10 +14,10 @@ class Businesses extends Component {
       businesses: [],
       pageOfItems: [],
       queryType: "q",
-      query: ''
+      query: ""
     };
   }
-  
+
   componentDidMount() {
     let queryType, query;
     if (this.props.location.searchProps) {
@@ -52,12 +52,15 @@ class Businesses extends Component {
           <div className="container">
             {/* <!-- Search bar --> */}
             <div className="row" id="search_business">
-              <form className="flex-grow" onSubmit={(event) => {
-                event.preventDefault();
-                const query = event.target.elements.businessName.value;
-                const queryType = event.target.elements.search_item.value;
-                this.handleSearch(queryType, query);
-                }}>
+              <form
+                className="flex-grow"
+                onSubmit={event => {
+                  event.preventDefault();
+                  const query = event.target.elements.businessName.value;
+                  const queryType = event.target.elements.search_item.value;
+                  this.handleSearch(queryType, query);
+                }}
+              >
                 <div className="input-group">
                   <select
                     className="custom-select"
@@ -89,11 +92,20 @@ class Businesses extends Component {
               </form>
             </div>
             {/* <!-- Search items --> */}
-            <div className="row">
-              {this.state.pageOfItems.map(business => (
-                <SingleBusiness business={business} key={business.id} />
-              ))}
-            </div>
+            {this.state.pageOfItems.length > 0 ? (
+              <div className="row">
+                {this.state.pageOfItems.map(business => (
+                  <SingleBusiness business={business} key={business.id} />
+                ))}
+              </div>
+            ) : (
+              <div className="no-business white-bg">
+                <br />
+                <br />
+                <br />
+                <h4>There are no businesses matching this query.</h4>
+              </div>
+            )}
           </div>
           <br />
           <div className="row mypagination h-100 justify-content-center align-items-center">

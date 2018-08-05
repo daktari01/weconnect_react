@@ -17,15 +17,14 @@ class MyBusinesses extends Component {
   }
 
   componentDidMount() {
-    // axios.get("http://daktari01-weconnect.herokuapp.com/api/v2/businesses")
     const access_token = localStorage.getItem("access_token");
     axios
       .get("http://localhost:5000/api/v2/my-businesses", {
         headers: {
-            Accept: "application/json",
-            "Content-type": "application/json",
-            "x-access-token": access_token
-          }
+          Accept: "application/json",
+          "Content-type": "application/json",
+          "x-access-token": access_token
+        }
       })
       .then(response => {
         const businesses = response.data.businesses;
@@ -45,6 +44,7 @@ class MyBusinesses extends Component {
     event.preventDefault();
     const name = event.target.elements.businessName.value;
     const search_item = event.target.elements.search_item.value;
+    const access_token = localStorage.getItem("access_token");
     let search_by = "";
 
     if (search_item === "name") {
@@ -56,7 +56,13 @@ class MyBusinesses extends Component {
     }
 
     axios
-      .get(`${localApi}my-businesses?${search_by}=${name}`)
+      .get(`${localApi}my-businesses?${search_by}=${name}`, {
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json",
+          "x-access-token": access_token
+        }
+      })
       .then(response => {
         const businesses = response.data.businesses;
         this.setState({ businesses });
@@ -106,11 +112,20 @@ class MyBusinesses extends Component {
               </form>
             </div>
             {/* <!-- Search items --> */}
-            <div className="row">
-              {this.state.pageOfItems.map(business => (
-                <SingleBusiness business={business} key={business.id} />
-              ))}
-            </div>
+            {this.state.pageOfItems.length > 0 ? (
+              <div className="row">
+                {this.state.pageOfItems.map(business => (
+                  <SingleBusiness business={business} key={business.id} />
+                ))}
+              </div>
+            ) : (
+              <div className="no-business white-bg">
+                <br />
+                <br />
+                <br />
+                <h4>There are no businesses matching this query</h4>
+              </div>
+            )}
           </div>
           <br />
           <div className="row mypagination h-100 justify-content-center align-items-center">
