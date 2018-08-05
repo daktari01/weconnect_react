@@ -1,9 +1,49 @@
 import React, { Component } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { Redirect } from "react-router-dom";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import signInLogo from "../static/img/logos/weConnect.png";
+import { localApi } from "../utilities/api";
 
 class ResetPassword extends Component {
+  state = {
+    email: ""
+  };
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    const access_token = localStorage.getItem("access_token");
+    const newPass = {
+      email: this.state.email
+    };
+    // Make POST request
+    axios
+      .post(localApi + "auth/reset-password", newPass, {
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json"
+        }
+      })
+      .then(response => {
+        console.log(response.data);
+        toast.success(
+          "Reset password successful. Go to your email address for a password reset link."
+        );
+        return <Redirect to="/login" />;
+      })
+      .catch(error => {
+        toast.error("Reset password unsuccessful. Please try again");
+      });
+  };
+
   render() {
     return (
       <div>
@@ -23,16 +63,19 @@ class ResetPassword extends Component {
                     className="form-control"
                     id="loginEmailInput"
                     placeholder="Enter email to reset password"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
                   />
                 </div>
-                <button type="submit" className="btn btn-primary btn-block">
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-block"
+                  onClick={this.handleSubmit}
+                >
                   Reset Password
                 </button>
-                {/* <br /> */}
-                {/* <p>
-                  Go to your email address to get instructions on resetting your
-                  password.
-                </p> */}
+                <br />
               </form>
             </div>
           </div>
