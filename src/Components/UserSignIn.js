@@ -34,6 +34,7 @@ class UserSignIn extends Component {
       .then(response => {
         appAuth.authenticate();
         localStorage.setItem("access_token", response.data.token);
+        localStorage.setItem("user_id", response.data.user_id)
         toast.success("Login successful");
         this.setState({ fireRedirect: true });
       })

@@ -113,6 +113,7 @@ class BusinessProfile extends Component {
   };
   handleDelete = event => {
     const businessId = this.props.match.params.id;
+    const user_id = Number(localStorage.getItem("user_id"));
     event.preventDefault();
     const access_token = localStorage.getItem("access_token");
     axios
@@ -134,6 +135,7 @@ class BusinessProfile extends Component {
     this.deleteToggle();
   };
   render() {
+    const user_id = Number(localStorage.getItem("user_id"));
     const { business, reviews, fireRedirect } = this.state;
     const review = reviews.map(review => (
       <SingleReview review={review} key={review.review_id} />
@@ -177,6 +179,7 @@ class BusinessProfile extends Component {
                       </a>
                     </dd>
                   </dl>
+                  {user_id !== business.user_id ?
                   <a
                     href="#"
                     className="btn btn-primary review-button"
@@ -184,23 +187,23 @@ class BusinessProfile extends Component {
                   >
                     Add a Review
                   </a>
-                  {this.state.logged_in && (
-                    <Fragment>
-                      <Link
-                        to={"/update-business/" + business.id}
-                        className="btn btn-primary review-button"
-                      >
-                        Update Business
-                      </Link>
-                      <a
-                        href="#"
-                        className="btn btn-danger review-button"
-                        onClick={this.deleteToggle}
-                      >
-                        Delete Business
-                      </a>
-                    </Fragment>
-                  )}
+                  :
+                  <Fragment>
+                    <Link
+                      to={"/update-business/" + business.id}
+                      className="btn btn-primary review-button"
+                    >
+                      Update Business
+                    </Link>
+                    <a
+                      href="#"
+                      className="btn btn-danger review-button"
+                      onClick={this.deleteToggle}
+                    >
+                      Delete Business
+                    </a>
+                  </Fragment>
+                  }
                 </div>
                 {/* <!-- Review Modal --> */}
                 <Modal

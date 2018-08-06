@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import company_logo from "../static/img/logos/weConnectCircle.png";
 
-const SingleBusiness = ({ business }) => (
+const user_id = Number(localStorage.getItem("user_id"));
+const SingleBusiness = ({ business }) => {
+  return(
   <div className="col-md-4">
     <div className="white-bg search_item shadow p-3 mb-5 rounded">
       <h3 className="company_name">{business.name}</h3>
@@ -35,15 +37,25 @@ const SingleBusiness = ({ business }) => (
           <a href={business.web_address}>{business.web_address}</a>
         </dd>
       </dl>
-      <Link
-        to={"business/" + business.id}
-        className="btn btn-primary review-button"
-      >
-        Manage Business
-      </Link>
+      {(user_id === business.user_id) ? (
+        <Link
+          to={"business/" + business.id}
+          className="btn btn-primary review-button"
+        >
+          Manage Business
+        </Link>
+      ) : (
+        <Link
+          to={"business/" + business.id}
+          className="btn btn-primary review-button"
+        >
+          View Business
+        </Link>
+      )}
     </div>
   </div>
-);
+  )
+};
 
 SingleBusiness.propTypes = {
   business: PropTypes.object

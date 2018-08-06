@@ -139,29 +139,6 @@ class UpdateBusinessProfile extends Component {
                     placeholder="Enter web address"
                   />
                 </div>
-                <div className="form-group">
-                  <label htmlFor="loginEmail">Upload Logo</label>
-                  <div className="input-group mb-3">
-                    <div className="custom-file">
-                      <input
-                        type="file"
-                        className="custom-file-input"
-                        id="inputGroupFile"
-                      />
-                      <label
-                        className="custom-file-label"
-                        htmlFor="inputGroupFile"
-                      >
-                        Choose file
-                      </label>
-                    </div>
-                    <div className="input-group-append">
-                      <span className="input-group-text" id="upload_logo">
-                        Upload
-                      </span>
-                    </div>
-                  </div>
-                </div>
                 <button
                   type="submit"
                   className="btn btn-primary btn-block"
