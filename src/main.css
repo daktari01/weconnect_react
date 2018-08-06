@@ -45,6 +45,9 @@ body {
   display: flex;
   float: none;
 }
+.image404{
+  margin-top: 100px;
+}
 #loginContainer form {
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -120,6 +123,17 @@ body {
 #deleteBusiness{
     position: relative;
     right: 40%;
+}
+#img404{
+  max-width: 100%;
+}
+#text404{
+  text-align: center;
+  margin-top: 20%;
+}
+
+#text404 h1, h3, h4{
+  color: #2980ba;
 }
 .inputSearch {
   color: #2980ba;

@@ -7,10 +7,19 @@ import Footer from "./Footer";
 import signInLogo from "../static/img/logos/weConnect.png";
 import { localApi } from "../utilities/api";
 
-class ResetPassword extends Component {
+class Reset extends Component {
   state = {
-    email: ""
+    email: "",
+    fireRedirect: false
   };
+
+  componentDidMount() {
+    const reset_token = this.props.match.params.token;
+    this.setState({
+      reset_token: reset_token
+    });
+    console.log(reset_token);
+  }
 
   handleChange = event => {
     this.setState({
@@ -21,22 +30,20 @@ class ResetPassword extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const newPass = {
-      email: this.state.email
+      new_password: this.state.password,
+      confirm_new_password: this.state.confirmPassword
     };
     // Make POST request
     axios
-      .post(localApi + "auth/reset-password", newPass, {
+      .post(localApi + "auth/reset/" + this.state.reset_token, newPass, {
         headers: {
           Accept: "application/json",
           "Content-type": "application/json"
         }
       })
       .then(response => {
-        console.log(response.data);
-        toast.success(
-          "Almost there. Go to your email address for a password reset link."
-        );
-        return <Redirect to="/login" />;
+        toast.success("Reset password successful. You can now login.");
+        this.setState({ fireRedirect: true });
       })
       .catch(error => {
         toast.error("Reset password unsuccessful. Please try again");
@@ -44,6 +51,7 @@ class ResetPassword extends Component {
   };
 
   render() {
+    const { fireRedirect } = this.state;
     return (
       <div>
         <section id="body">
@@ -55,15 +63,28 @@ class ResetPassword extends Component {
                   <img className="img-fluid" alt="logo" src={signInLogo} />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="loginEmail">Email</label>
+                  <label htmlFor="loginEmail">Password</label>
                   <br />
                   <input
-                    type="text"
+                    type="password"
                     className="form-control"
-                    id="loginEmailInput"
-                    placeholder="Enter email to reset password"
-                    name="email"
-                    value={this.state.email}
+                    id="inputPassword"
+                    placeholder="Enter password"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="loginEmail">Confirm Password</label>
+                  <br />
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="inputConfirmPassword"
+                    placeholder="Enter confirm password"
+                    name="confirmPassword"
+                    value={this.state.confirmPassword}
                     onChange={this.handleChange}
                   />
                 </div>
@@ -80,9 +101,10 @@ class ResetPassword extends Component {
           </div>
         </section>
         <Footer />
+        {fireRedirect && <Redirect to="/login" />}
       </div>
     );
   }
 }
 
-export default ResetPassword;
+export default Reset;
