@@ -38,7 +38,7 @@ class UserSignIn extends Component {
         this.setState({ fireRedirect: true });
       })
       .catch(error => {
-        console.log(error.data);
+        console.log(error);
         toast.error("Login unsuccessful. Please try again");
       });
   };

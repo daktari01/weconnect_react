@@ -7,6 +7,7 @@ import Businesses from './Components/Businesses';
 import MyBusinesses from './Components/MyBusinesses';
 import BusinessProfile from './Components/BusinessProfile';
 import RegisterBusiness from './Components/RegisterBusiness';
+import Reset from './Components/Reset';
 import UpdateBusinessProfile from './Components/UpdateBusinessProfile';
 import ResetPassword from './Components/ResetPassword';
 import { PrivateRoute } from './utilities/privateRoute';
@@ -31,6 +32,7 @@ class App extends Component {
           <Route path='/register-business' component={RegisterBusiness}/>
           <Route path='/business/:id' component={BusinessProfile}/>
           <Route path='/update-business/:id' component={UpdateBusinessProfile}/>
+          <Route path='/reset/:token' component={Reset}/>
           <Route path='/reset-password' component={ResetPassword}/>
           <Route path='/page404' component={Page404}/>
           <ToastContainer />
