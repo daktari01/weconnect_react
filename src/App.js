@@ -25,6 +25,7 @@ class App extends Component {
   }
   render() {
     return (
+<<<<<<< HEAD
       <div>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -53,6 +54,22 @@ class App extends Component {
           <Route component={Page404} />
           <ToastContainer />
         </Switch>
+=======
+        <div>
+          <Route exact path='/' component={Home} />
+          <Route path='/register' component={UserRegistration} />
+          <Route path='/login' component={UserSignIn} />
+          <Route path='/business-profile' component={BusinessProfile} />
+          <Route path='/businesses' component={Businesses}/>
+          <PrivateRoute path='/my-businesses'  component={MyBusinesses}/>
+          <PrivateRoute path='/register-business' component={RegisterBusiness}/>
+          <Route path='/business/:id' component={BusinessProfile}/>
+          <PrivateRoute path='/update-business/:id' component={UpdateBusinessProfile}/>
+          <Route path='/reset/:token' component={Reset}/>
+          <Route path='/reset-password' component={ResetPassword}/>
+          <Route path='/page404' component={Page404}/>
+          <ToastContainer />
+>>>>>>> [chore] Set up tests
       </div>
     );
   }
