@@ -113,7 +113,6 @@ class BusinessProfile extends Component {
   };
   handleDelete = event => {
     const businessId = this.props.match.params.id;
-    const user_id = Number(localStorage.getItem("user_id"));
     event.preventDefault();
     const access_token = localStorage.getItem("access_token");
     axios
@@ -179,31 +178,31 @@ class BusinessProfile extends Component {
                       </a>
                     </dd>
                   </dl>
-                  {user_id !== business.user_id ?
-                  <a
-                    href="#"
-                    className="btn btn-primary review-button"
-                    onClick={this.toggle}
-                  >
-                    Add a Review
-                  </a>
-                  :
-                  <Fragment>
-                    <Link
-                      to={"/update-business/" + business.id}
-                      className="btn btn-primary review-button"
-                    >
-                      Update Business
-                    </Link>
+                  {user_id !== business.user_id ? (
                     <a
                       href="#"
-                      className="btn btn-danger review-button"
-                      onClick={this.deleteToggle}
+                      className="btn btn-primary review-button"
+                      onClick={this.toggle}
                     >
-                      Delete Business
+                      Add a Review
                     </a>
-                  </Fragment>
-                  }
+                  ) : (
+                    <Fragment>
+                      <Link
+                        to={"/update-business/" + business.id}
+                        className="btn btn-primary review-button"
+                      >
+                        Update Business
+                      </Link>
+                      <a
+                        href="#"
+                        className="btn btn-danger review-button"
+                        onClick={this.deleteToggle}
+                      >
+                        Delete Business
+                      </a>
+                    </Fragment>
+                  )}
                 </div>
                 {/* <!-- Review Modal --> */}
                 <Modal
@@ -326,10 +325,16 @@ class BusinessProfile extends Component {
               </div>
             </div>
           ) : (
-            <form>
-              <h2>There are no businesses.</h2>
-              <a className="btn btn-primary" href="/register-business" />
-            </form>
+            <div className="no-business white-bg">
+              <br />
+              <br />
+              <br />
+              <h4>There are no businesses matching this query.</h4>
+              <br />
+              <a className="btn btn-primary" href="/businesses">
+                See all businesses
+              </a>
+            </div>
           )}
         </section>
         <Footer />

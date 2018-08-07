@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { toast } from "react-toastify";
 import { Redirect } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import NavBar from "./NavBar";

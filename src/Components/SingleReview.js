@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import company_logo from "../static/img/logos/weConnectCircle.png";
 import user_avatar from "../static/img/users/user_avatar.png";
 
 const SingleReview = ({ review }) => (

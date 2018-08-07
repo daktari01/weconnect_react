@@ -3,8 +3,6 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import SingleBusiness from "./SingleBusiness";
-import signInLogo from "../static/img/logos/weConnect.png";
 import logo from "../static/img/logos/weConnect.png";
 import { localApi } from "../utilities/api";
 import { toast } from "react-toastify";

@@ -120,11 +120,15 @@ class MyBusinesses extends Component {
               </div>
             ) : (
               <div className="no-business white-bg">
-                <br />
-                <br />
-                <br />
-                <h4>There are no businesses matching this query</h4>
-              </div>
+              <br />
+              <br />
+              <br />
+              <h4>There are no businesses matching this query.</h4>
+              <br />
+              <a className="btn btn-primary" href="/businesses">
+                See all businesses
+              </a>
+            </div>
             )}
           </div>
           <br />

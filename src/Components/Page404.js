@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import signInLogo from "../static/img/logos/weConnect.png";
 import chimp from "../static/img/backgrounds/chimp404.jpg";
 
 class Page404 extends Component {

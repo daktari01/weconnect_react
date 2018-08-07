@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 import { Redirect } from "react-router-dom";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import { appAuth } from "../utilities/auth";
 import signInLogo from "../static/img/logos/weConnect.png";
 import { localApi } from "../utilities/api";
 
@@ -33,10 +32,10 @@ class UserSignIn extends Component {
       })
       .then(response => {
         // appAuth.authenticate();
+        toast.success("Login successful");
         localStorage.setItem("access_token", response.data.token);
         localStorage.setItem("user_id", response.data.user_id)
         localStorage.setItem("isAuthenticated", true);
-        toast.success("Login successful");
         this.setState({ fireRedirect: true });
       })
       .catch(error => {
