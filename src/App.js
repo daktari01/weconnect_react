@@ -14,7 +14,7 @@ import { PrivateRoute } from "./utilities/privateRoute";
 import { ToastContainer } from "react-toastify";
 import "react-notifications/lib/notifications.css";
 import "./main.css";
-import { Route, Switch } from "react-router-dom";
+import { Router, Route, browserHistory } from "react-router";
 import Home from "./Components/Home";
 import Page404 from "./Components/Page404";
 
@@ -26,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Switch>
+        <Router history={browserHistory}>
           <Route exact path="/" component={Home} />
           <Route path="/register" component={UserRegistration} />
           <Route path="/login" component={UserSignIn} />
@@ -50,9 +50,9 @@ class App extends Component {
           />
           <Route path="/reset/:token" component={Reset} />
           <Route path="/reset-password" component={ResetPassword} />
-          <Route component={Page404} />
+          <Route path="*" component={Page404} />
           <ToastContainer />
-        </Switch>
+        </Router>
       </div>
     );
   }

@@ -20,7 +20,7 @@ class UpdateBusinessProfile extends Component {
   componentDidMount() {
     const businessId = this.props.match.params.id;
     axios
-      .get("http://localhost:5000/api/v2/businesses/" + businessId, {
+      .get(localApi+"businesses/" + businessId, {
         headers: {
           Accept: "application/json",
           "Content-type": "application/json"

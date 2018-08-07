@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserRegistration renders correctly Succeeds 1`] = `
+<div>
+  <section
+    id="body"
+  >
+    <NavBar />
+    <div
+      className="container d-flex p-2 col-min-6"
+      id="loginContainer"
+    >
+      <div
+        className="wrapper"
+        id="loginWrapper"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <div
+            className="col-sm-12"
+            id="loginLogo"
+          >
+            <img
+              alt="WeConnect logo"
+              className="img-fluid"
+              src="weConnect.png"
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="loginEmail"
+            >
+              First name
+            </label>
+            <input
+              className="form-control"
+              id="firstNameInput"
+              name="firstName"
+              onChange={[Function]}
+              placeholder="Enter first name"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="loginEmail"
+            >
+              Last name
+            </label>
+            <input
+              className="form-control"
+              id="lastNameInput"
+              name="lastName"
+              onChange={[Function]}
+              placeholder="Enter last name"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="loginEmail"
+            >
+              Email address
+            </label>
+            <input
+              className="form-control"
+              id="emailInput"
+              name="email"
+              onChange={[Function]}
+              placeholder="Enter email"
+              type="email"
+              value=""
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="loginUsername"
+            >
+              Username
+            </label>
+            <input
+              className="form-control"
+              id="loginUsernameInput"
+              name="username"
+              onChange={[Function]}
+              placeholder="Enter username"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="loginPassword"
+            >
+              Password
+            </label>
+            <input
+              className="form-control"
+              id="loginPasswordInput"
+              name="password"
+              onChange={[Function]}
+              placeholder="Enter password"
+              type="password"
+              value=""
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="loginPassword"
+            >
+              Confirm Password
+            </label>
+            <input
+              className="form-control"
+              id="loginConfirmPasswordInput"
+              name="confirmPassword"
+              onChange={[Function]}
+              placeholder="Confirm your password"
+              type="password"
+              value=""
+            />
+          </div>
+          <button
+            className="btn btn-primary btn-block"
+            type="submit"
+          >
+            Register
+          </button>
+          <p>
+            Have an account? 
+            <a
+              href="login"
+            >
+              Login
+            </a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</div>
+`;

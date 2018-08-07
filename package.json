@@ -8,6 +8,7 @@
     "classnames": "^2.2.6",
     "font-awesome": "^4.7.0",
     "jw-react-pagination": "^1.0.7",
+    "moxios": "^0.4.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-notifications": "^1.4.3",
@@ -28,5 +29,16 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/***",
+      "!src/registerServiceWorker.js",
+      "!src/App.test.js",
+      "!src/App.js",
+      "!src/utilities/privateRoute.js",
+      "!src/tests/__snapshots__/***"
+
+    ]
   }
 }
