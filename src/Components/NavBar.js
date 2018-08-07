@@ -38,6 +38,8 @@ class NavBar extends Component {
         toast.success(response.data["message"]);
         this.setState({ logged_in: false, fireRedirect: true });
         localStorage.removeItem("access_token");
+        localStorage.removeItem("user_id");
+        localStorage.removeItem("isAuthenticated");
         console.log(this.state.logged_in);
       })
       .catch(error => {

@@ -20,6 +20,11 @@ import Page404 from './Components/Page404';
 
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.isAuthenticated = localStorage.getItem("isAuthenticated");
+  }
   render() {
     return (
         <div>
@@ -28,17 +33,14 @@ class App extends Component {
           <Route path='/login' component={UserSignIn} />
           <Route path='/business-profile' component={BusinessProfile} />
           <Route path='/businesses' component={Businesses}/>
-          <Route path='/my-businesses' component={MyBusinesses}/>
-          <Route path='/register-business' component={RegisterBusiness}/>
+          <PrivateRoute path='/my-businesses' isAuthenticated={this.isAuthenticated} component={MyBusinesses}/>
+          <PrivateRoute path='/register-business' isAuthenticated={this.isAuthenticated} component={RegisterBusiness}/>
           <Route path='/business/:id' component={BusinessProfile}/>
-          <Route path='/update-business/:id' component={UpdateBusinessProfile}/>
+          <PrivateRoute path='/update-business/:id' isAuthenticated={this.isAuthenticated} component={UpdateBusinessProfile}/>
           <Route path='/reset/:token' component={Reset}/>
           <Route path='/reset-password' component={ResetPassword}/>
           <Route path='/page404' component={Page404}/>
           <ToastContainer />
-          {/* <PrivateRoute path='/my-businesses' component={MyBusinesses}/>
-          <PrivateRoute path='/register-business' component={RegisterBusiness}/>
-          <PrivateRoute path='/business-profile' component={BusinessProfile} /> */}
       </div>
     );
   }
