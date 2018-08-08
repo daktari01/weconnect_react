@@ -2,7 +2,7 @@ import Enzyme, { shallow, render, mount } from "enzyme";
 import React from "react";
 import Footer from "../Components/Footer";
 import Page404 from "../Components/Page404";
-import NavBar from '../Components/NavBar';
+import NavBar from "../Components/NavBar";
 import Home from "../Components/Home";
 import { shallowToJson } from "enzyme-to-json";
 

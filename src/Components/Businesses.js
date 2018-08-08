@@ -6,6 +6,9 @@ import SingleBusiness from "./SingleBusiness";
 import JwPagination from "jw-react-pagination";
 import { localApi } from "../utilities/api";
 
+/**
+ * Fetches all businesses
+ */
 class Businesses extends Component {
   constructor(props) {
     super(props);
@@ -27,12 +30,20 @@ class Businesses extends Component {
     }
     this.handleSearch(queryType, query);
   }
+
+  /**
+   * Handles pagination
+   * @param pageOfItems 
+   */
   onChangePage(pageOfItems) {
     this.setState({
       pageOfItems
     });
   }
 
+  /**
+   * Handles search for all businesses
+   */
   handleSearch = (queryType, query) => {
     axios
       .get(`${localApi}businesses?${queryType}=${query}`)
@@ -92,7 +103,8 @@ class Businesses extends Component {
                 </div>
               </form>
             </div>
-            {/* <!-- Search items --> */}
+            {/**
+            Render single business  */}
             {this.state.pageOfItems.length > 0 ? (
               <div className="row">
                 {this.state.pageOfItems.map(business => (
@@ -101,15 +113,15 @@ class Businesses extends Component {
               </div>
             ) : (
               <div className="no-business white-bg">
-              <br />
-              <br />
-              <br />
-              <h4>There are no businesses matching this query.</h4>
-              <br />
-              <a className="btn btn-primary" href="/businesses">
+                <br />
+                <br />
+                <br />
+                <h4>There are no businesses matching this query.</h4>
+                <br />
+                <a className="btn btn-primary" href="/businesses">
                 See all businesses
-              </a>
-            </div>
+                </a>
+              </div>
             )}
           </div>
           <br />

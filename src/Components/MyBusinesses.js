@@ -6,6 +6,9 @@ import SingleBusiness from "./SingleBusiness";
 import JwPagination from "jw-react-pagination";
 import { localApi } from "../utilities/api";
 
+/**
+ * Class to fetch all businesses belonging to a user
+ */
 class MyBusinesses extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +19,9 @@ class MyBusinesses extends Component {
     };
   }
 
+  /**
+   * Fetch all user's businesses
+   */
   componentDidMount() {
     const access_token = localStorage.getItem("access_token");
     axios
@@ -40,6 +46,9 @@ class MyBusinesses extends Component {
     });
   }
 
+  /**
+   * Handle search for user's businesses
+   */
   handleSearch = event => {
     event.preventDefault();
     const name = event.target.elements.businessName.value;
@@ -120,15 +129,15 @@ class MyBusinesses extends Component {
               </div>
             ) : (
               <div className="no-business white-bg">
-              <br />
-              <br />
-              <br />
-              <h4>There are no businesses matching this query.</h4>
-              <br />
-              <a className="btn btn-primary" href="/businesses">
+                <br />
+                <br />
+                <br />
+                <h4>There are no businesses matching this query.</h4>
+                <br />
+                <a className="btn btn-primary" href="/businesses">
                 See all businesses
-              </a>
-            </div>
+                </a>
+              </div>
             )}
           </div>
           <br />

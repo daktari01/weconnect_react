@@ -7,17 +7,26 @@ import Footer from "./Footer";
 import signInLogo from "../static/img/logos/weConnect.png";
 import { localApi } from "../utilities/api";
 
+  /**
+   * Handle ResetPassword class
+   */
 class ResetPassword extends Component {
   state = {
     email: ""
   };
 
+  /**
+   * Handle onChange event for inputs
+   */
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
   };
 
+  /**
+   * Handle the submit function
+   */
   handleSubmit = event => {
     event.preventDefault();
     const newPass = {

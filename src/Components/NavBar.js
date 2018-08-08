@@ -5,6 +5,9 @@ import logo from "../static/img/logos/weConnect.png";
 import { toast } from "react-toastify";
 import { localApi } from "../utilities/api";
 
+/**
+ * Render NavBar component
+ */
 class NavBar extends Component {
   state = {
     fireRedirect: false
@@ -18,6 +21,10 @@ class NavBar extends Component {
       this.setState({ logged_in: true });
     }
   }
+
+  /**
+   * Handle logout function
+   */
   handleLogout = event => {
     const access_token = localStorage.getItem("access_token");
     event.preventDefault();

@@ -6,6 +6,9 @@ import Footer from "./Footer";
 import logo from "../static/img/logos/weConnect.png";
 import { localApi } from "../utilities/api";
 
+/**
+ * Handle RegisterBusiness component
+ */
 class RegisterBusiness extends Component {
   state = {
     businessName: "",
@@ -16,12 +19,19 @@ class RegisterBusiness extends Component {
     fireRedirect: false
   };
 
+  /**
+   * Handle onChange event for inputs
+   */
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
     console.log(this.state);
   };
+
+  /**
+   * Handle the submit function
+   */
   handleSubmit = event => {
     event.preventDefault();
     const newBusiness = {

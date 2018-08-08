@@ -3,6 +3,9 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 import chimp from "../static/img/backgrounds/chimp404.jpg";
 
+/**
+ * Handle the 404 page
+ */
 class Page404 extends Component {
   render() {
     return (
@@ -23,11 +26,11 @@ class Page404 extends Component {
                   </div>
                   <div className="col-sm-8">
                     <div id="text404" className="align-middle">
-                    <h1>404</h1>
-                    <h3>Page Not Found</h3>
-                    <h4>The page you are looking for could be found on this server.</h4>
-                    <br />
-                    <a href="/" className="btn btn-primary">Take Me Home</a>
+                      <h1>404</h1>
+                      <h3>Page Not Found</h3>
+                      <h4>The page you are looking for could be found on this server.</h4>
+                      <br />
+                      <a href="/" className="btn btn-primary">Take Me Home</a>
                     </div>
                   </div>
                 </div>

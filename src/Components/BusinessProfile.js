@@ -10,6 +10,9 @@ import company_logo from "../static/img/logos/weConnectCircle.png";
 import JwPagination from "jw-react-pagination";
 import { localApi } from "../utilities/api";
 
+/**
+ * Class to render a business profile
+ */
 class BusinessProfile extends Component {
   constructor(props) {
     super(props);
@@ -26,8 +29,11 @@ class BusinessProfile extends Component {
     this.toggle = this.toggle.bind(this);
     this.deleteToggle = this.deleteToggle.bind(this);
   }
+  /**
+   * Fetch a single business and its reviews
+   */
   componentDidMount() {
-    console.log(this.props)
+    console.log(this.props);
     const businessId = this.props.match.params.id;
     axios
       .get(localApi + "businesses/" + businessId, {
@@ -63,27 +69,46 @@ class BusinessProfile extends Component {
       this.setState({ logged_in: true });
     }
   }
+
+  /**
+   * Handles pagination of reviews
+   * @param pageOfItems 
+   */
   onChangePage(pageOfItems) {
     this.setState({
       pageOfItems
     });
   }
+  /**
+   * Handles Delete modal
+   */
   deleteToggle() {
     this.setState({
       deleteModal: !this.state.deleteModal
     });
   }
+
+  /**
+   * Handles Add Review modal
+   */
   toggle() {
     this.setState({
       modal: !this.state.modal
     });
   }
 
+  /**
+   * Handles onChange event for input boxes
+   */
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
   };
+
+  /**
+   * Handles posting a review
+   */
   handleSubmit = event => {
     const businessId = this.props.match.params.id;
     event.preventDefault();
@@ -111,6 +136,10 @@ class BusinessProfile extends Component {
       });
     this.toggle();
   };
+
+  /**
+   * Handle delete business
+   */
   handleDelete = event => {
     const businessId = this.props.match.params.id;
     event.preventDefault();

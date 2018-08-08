@@ -16,8 +16,8 @@ describe("RegisterBusiness component", () => {
 
 describe("UpdateBusinessProfile component", () => {
   const bid={
-      params: {
-        id: 1
+    params: {
+      id: 1
     }
   };
   const wrapper = shallow(
@@ -34,7 +34,7 @@ describe("MyBusinesses component", () => {
     fireRedirect: false,
     query: "",
     activeTab: "q",
-  }
+  };
   const wrapper = shallow(<MyBusinesses searchProps={prop} />);
   it("MyBusinesses component renders successfully", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();

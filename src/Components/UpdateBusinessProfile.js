@@ -7,6 +7,9 @@ import logo from "../static/img/logos/weConnect.png";
 import { localApi } from "../utilities/api";
 import { toast } from "react-toastify";
 
+/**
+ * Class to handle update business
+ */
 class UpdateBusinessProfile extends Component {
   state = {
     businessName: "",
@@ -15,9 +18,13 @@ class UpdateBusinessProfile extends Component {
     webAddress: "",
     fireRedirect: false
   };
+
+  /**
+   * Populate the inputs with data from the db
+   */
   componentDidMount() {
     const businessId = this.props.match.params.id;
-    console.log(this.props)
+    console.log(this.props);
     axios
       .get(localApi+"businesses/" + businessId, {
         headers: {
@@ -39,11 +46,18 @@ class UpdateBusinessProfile extends Component {
       });
   }
 
+  /**
+   * Handle onChange event for inputs
+   */
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
   };
+
+  /**
+   * Handle the submit function
+   */
   handleSubmit = event => {
     const businessId = this.props.match.params.id;
     event.preventDefault();
@@ -71,6 +85,7 @@ class UpdateBusinessProfile extends Component {
         toast.error("WeConnect was unable to update " + newBusiness.name);
       });
   };
+  
   render() {
     const { fireRedirect } = this.state;
     const businessId = this.props.match.params.id;

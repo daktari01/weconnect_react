@@ -14,6 +14,9 @@ import {
 } from "reactstrap";
 import classnames from "classnames";
 
+/**
+ * Handle the Home page
+ */
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -26,15 +29,28 @@ class Home extends Component {
       activeTab: "q",
     };
   }
+
+  /**
+   * Handles onchange event for search input boxes
+   */
   handleInput = event => {
     this.setState({
       query: event.target.value
     });
   };
+
+  /**
+   * Handles the search buttons for the search
+   */
   handleSearch = event => {
     event.preventDefault();
     this.setState({ fireRedirect: true });
   };
+
+  /**
+   * Handle the search box
+   * @param tab 
+   */
   toggle(tab) {
     if (this.state.activeTab !== tab) {
       this.setState({

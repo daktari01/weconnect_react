@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import user_avatar from "../static/img/users/user_avatar.png";
 
+/**
+ * Render single review
+ */
 const SingleReview = ({ review }) => (
   <div id="review_item" className="row">
     <div className="col-sm-3 pull-left" id="user_holder">

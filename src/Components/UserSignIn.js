@@ -7,17 +7,28 @@ import Footer from "./Footer";
 import signInLogo from "../static/img/logos/weConnect.png";
 import { localApi } from "../utilities/api";
 
+/**
+ * Class to handle user login
+ */
 class UserSignIn extends Component {
   state = {
     username: "",
     password: "",
     fireRedirect: false
   };
+
+  /**
+   * Handle onChange event for inputs
+   */
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
   };
+
+  /**
+   * Handle the submit function
+   */
   handleSubmit = event => {
     event.preventDefault();
     const { username, password } = this.state;
@@ -34,7 +45,7 @@ class UserSignIn extends Component {
         // appAuth.authenticate();
         toast.success("Login successful");
         localStorage.setItem("access_token", response.data.token);
-        localStorage.setItem("user_id", response.data.user_id)
+        localStorage.setItem("user_id", response.data.user_id);
         localStorage.setItem("isAuthenticated", true);
         this.setState({ fireRedirect: true });
       })
