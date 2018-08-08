@@ -1,12 +1,15 @@
 import Enzyme, { shallow, render, mount } from "enzyme";
 import React from "react";
 import RegisterBusiness from "../Components/RegisterBusiness";
+import MyBusinesses from "../Components/MyBusinesses";
+import Businesses from "../Components/Businesses";
+import BusinessProfile from "../Components/BusinessProfile";
 import UpdateBusinessProfile from "../Components/UpdateBusinessProfile";
 import { shallowToJson } from "enzyme-to-json";
 
 describe("RegisterBusiness component", () => {
   const wrapper = shallow(<RegisterBusiness />);
-  it("renders footer successfully", () => {
+  it("RegisterBusiness coponent renders successfully", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
 });
@@ -15,13 +18,35 @@ describe("UpdateBusinessProfile component", () => {
   const bid = {
     match: {
       params: {
-        id: "1"
+        id: 1
       }
     }
   };
+  const wrapper = shallow(
+    <UpdateBusinessProfile match={match} params={{ bid }} />
+  );
+  it("UpdateBusinessProfile renders successfully", () => {
+    expect(shallowToJson(wrapper)).toMatchSnapshot();
+  });
+});
 
-  const wrapper = shallow(<UpdateBusinessProfile params={{ bid }} />);
-  it("renders footer successfully", () => {
+describe("MyBusinesses component", () => {
+  const wrapper = shallow(<MyBusinesses />);
+  it("MyBusinesses component renders successfully", () => {
+    expect(shallowToJson(wrapper)).toMatchSnapshot();
+  });
+});
+
+describe("Businesses component", () => {
+  const wrapper = shallow(<Businesses />);
+  it("Businesses component renders successfully", () => {
+    expect(shallowToJson(wrapper)).toMatchSnapshot();
+  });
+});
+
+describe("BusinessProfile component", () => {
+  const wrapper = shallow(<BusinessProfile />);
+  it("BusinessProfile component renders successfully", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
 });

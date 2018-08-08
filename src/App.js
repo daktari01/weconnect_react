@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.min.css";
 import UserRegistration from "./Components/UserRegistration";
 import UserSignIn from "./Components/UserSignIn";
 import Businesses from "./Components/Businesses";
@@ -26,6 +26,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <ToastContainer />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/register" component={UserRegistration} />
@@ -51,7 +52,6 @@ class App extends Component {
           <Route path="/reset/:token" component={Reset} />
           <Route path="/reset-password" component={ResetPassword} />
           <Route path="*" component={Page404} />
-          <ToastContainer />
         </Switch>
       </div>
     );

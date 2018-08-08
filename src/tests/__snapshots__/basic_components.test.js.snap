@@ -258,6 +258,69 @@ exports[`Home renders correctly Succeeds 1`] = `
 </div>
 `;
 
+exports[`NavBar renders correctly Succeeds 1`] = `
+<div
+  className="container"
+>
+  <nav
+    className="navbar navbar-expand-lg navbar-light bg-faded"
+  >
+    <a
+      className="navbar-brand"
+      href="/"
+    >
+      <img
+        alt="WeConnect logo"
+        className="logo"
+        src="weConnect.png"
+      />
+    </a>
+    <button
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      className="navbar-toggler"
+      data-target="#navbarNavDropdown"
+      data-toggle="collapse"
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      className="navbar-collapse collapse"
+      id="navbarNavDropdown"
+    >
+      <ul
+        className="navbar-nav ml-auto"
+      >
+        <li
+          className="nav-item"
+        >
+          <a
+            className="nav-link"
+            href="/login"
+          >
+            Login
+          </a>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <a
+            className="nav-link"
+            href="/register"
+          >
+            Register
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+`;
+
 exports[`Page404 renders correctly Succeeds 1`] = `
 <div>
   <section

@@ -1,5 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ResetPassword renders correctly Succeeds 1`] = `
+<div>
+  <section
+    id="body"
+  >
+    <NavBar />
+    <div
+      className="container col-min-6"
+      id="loginContainer"
+    >
+      <div
+        className="wrapper"
+        id="loginWrapper"
+      >
+        <form>
+          <div
+            className="col-sm-12"
+            id="loginLogo"
+          >
+            <img
+              alt="logo"
+              className="img-fluid"
+              src="weConnect.png"
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="loginEmail"
+            >
+              Email
+            </label>
+            <br />
+            <input
+              className="form-control"
+              id="loginEmailInput"
+              name="email"
+              onChange={[Function]}
+              placeholder="Enter email to reset password"
+              type="text"
+              value=""
+            />
+          </div>
+          <button
+            className="btn btn-primary btn-block"
+            onClick={[Function]}
+            type="submit"
+          >
+            Reset Password
+          </button>
+          <br />
+        </form>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</div>
+`;
+
 exports[`UserRegistration renders correctly Succeeds 1`] = `
 <div>
   <section

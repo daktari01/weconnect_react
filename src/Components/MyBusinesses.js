@@ -19,7 +19,7 @@ class MyBusinesses extends Component {
   componentDidMount() {
     const access_token = localStorage.getItem("access_token");
     axios
-      .get("http://localhost:5000/api/v2/my-businesses", {
+      .get(localApi+"my-businesses", {
         headers: {
           Accept: "application/json",
           "Content-type": "application/json",

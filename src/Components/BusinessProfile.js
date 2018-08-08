@@ -29,7 +29,7 @@ class BusinessProfile extends Component {
   componentDidMount() {
     const businessId = this.props.match.params.id;
     axios
-      .get("http://localhost:5000/api/v2/businesses/" + businessId, {
+      .get(localApi + "businesses/" + businessId, {
         headers: {
           Accept: "application/json",
           "Content-type": "application/json"
@@ -42,7 +42,6 @@ class BusinessProfile extends Component {
       .catch(error => {
         console.log(error);
       });
-    // axios.get("http://daktari01-weconnect.herokuapp.com/api/v2/businesses")
     axios
       .get(localApi + "businesses/" + businessId + "/reviews", {
         headers: {

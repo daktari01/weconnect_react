@@ -43,7 +43,6 @@ class UpdateBusinessProfile extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
-    // console.log(this.state);
   };
   handleSubmit = event => {
     const businessId = this.props.match.params.id;
@@ -56,7 +55,6 @@ class UpdateBusinessProfile extends Component {
     };
     const access_token = localStorage.getItem("access_token");
     // Make POST request
-    // axios.post('http://daktari01-weconnect.herokuapp.com/api/v2/businesses', {newBusiness})
     axios
       .put(localApi + "businesses/" + businessId, newBusiness, {
         headers: {
