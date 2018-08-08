@@ -274,6 +274,7 @@ class BusinessProfile extends Component {
                           type="text"
                           className="form-control"
                           placeholder="Review Title"
+                          id="reviewTitle"
                           name="reviewTitle"
                           value={this.state.reviewTitle}
                           onChange={this.handleChange}
@@ -295,6 +296,7 @@ class BusinessProfile extends Component {
                   <ModalFooter>
                     <button
                       type="button"
+                      id="addReview"
                       className="btn btn-primary"
                       onClick={this.handleSubmit}
                     >

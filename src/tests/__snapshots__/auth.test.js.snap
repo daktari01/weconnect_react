@@ -91,7 +91,9 @@ exports[`ResetPassword renders correctly Succeeds 1`] = `
         className="wrapper"
         id="loginWrapper"
       >
-        <form>
+        <form
+          onSubmit={[Function]}
+        >
           <div
             className="col-sm-12"
             id="loginLogo"
@@ -123,7 +125,6 @@ exports[`ResetPassword renders correctly Succeeds 1`] = `
           </div>
           <button
             className="btn btn-primary btn-block"
-            onClick={[Function]}
             type="submit"
           >
             Reset Password

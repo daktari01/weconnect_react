@@ -95,7 +95,7 @@ class UpdateBusinessProfile extends Component {
           <NavBar />
           <div className="container col-min-6" id="loginContainer">
             <div className="wrapper" id="loginWrapper">
-              <form>
+              <form onSubmit={this.handleSubmit}>
                 <div className="col-sm-12" id="loginLogo">
                   <img className="img-fluid" alt="logo" src={logo} />
                 </div>
@@ -153,7 +153,6 @@ class UpdateBusinessProfile extends Component {
                 <button
                   type="submit"
                   className="btn btn-primary btn-block"
-                  onClick={this.handleSubmit}
                 >
                   Update
                 </button>

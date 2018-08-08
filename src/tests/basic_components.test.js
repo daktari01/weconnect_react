@@ -5,6 +5,7 @@ import Page404 from "../Components/Page404";
 import NavBar from "../Components/NavBar";
 import Home from "../Components/Home";
 import { shallowToJson } from "enzyme-to-json";
+import sinon from "sinon";
 
 describe("Footer component", () => {
   const wrapper = shallow(<Footer />);

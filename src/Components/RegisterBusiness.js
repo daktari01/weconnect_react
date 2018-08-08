@@ -67,7 +67,7 @@ class RegisterBusiness extends Component {
           <NavBar />
           <div className="container col-min-6" id="loginContainer">
             <div className="wrapper" id="loginWrapper">
-              <form>
+              <form onSubmit={this.handleSubmit}>
                 <div className="col-sm-12" id="loginLogo">
                   <img className="img-fluid" alt="logo" src={logo} />
                 </div>
@@ -124,7 +124,6 @@ class RegisterBusiness extends Component {
                 <button
                   type="submit"
                   className="btn btn-primary btn-block"
-                  onClick={this.handleSubmit}
                 >
                   Register
                 </button>

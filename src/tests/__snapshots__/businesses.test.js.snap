@@ -252,7 +252,9 @@ exports[`RegisterBusiness component RegisterBusiness coponent renders successful
         className="wrapper"
         id="loginWrapper"
       >
-        <form>
+        <form
+          onSubmit={[Function]}
+        >
           <div
             className="col-sm-12"
             id="loginLogo"
@@ -354,7 +356,6 @@ exports[`RegisterBusiness component RegisterBusiness coponent renders successful
           </div>
           <button
             className="btn btn-primary btn-block"
-            onClick={[Function]}
             type="submit"
           >
             Register
@@ -382,7 +383,9 @@ exports[`UpdateBusinessProfile component UpdateBusinessProfile renders successfu
         className="wrapper"
         id="loginWrapper"
       >
-        <form>
+        <form
+          onSubmit={[Function]}
+        >
           <div
             className="col-sm-12"
             id="loginLogo"
@@ -489,7 +492,6 @@ exports[`UpdateBusinessProfile component UpdateBusinessProfile renders successfu
           </div>
           <button
             className="btn btn-primary btn-block"
-            onClick={[Function]}
             type="submit"
           >
             Update

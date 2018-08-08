@@ -56,6 +56,19 @@ describe("ResetPassword renders correctly", () => {
   it("Succeeds", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
+
+  it("Handles handleSubmit on submit ", () => {
+    let handleSubmit = sinon.spy;
+    let wrapper = mount(<ResetPassword onSubmit={handleSubmit} />);
+    wrapper.find("form").simulate("submit");
+    moxios.wait();
+  });
+
+  it("Handles handleChange on submit ", () => {
+    let handleChange = sinon.spy;
+    let wrapper = mount(<ResetPassword onChange={handleChange} />);
+    wrapper.find("#loginEmailInput").simulate("change");
+  });
 });
 
 describe("Reset renders correctly", () => {
@@ -68,5 +81,18 @@ describe("Reset renders correctly", () => {
   const wrapper = shallow(<Reset match={token}/>);
   it("Succeeds", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
+  });
+
+  it("Handles handleSubmit on submit ", () => {
+    let handleSubmit = sinon.spy;
+    let wrapper = mount(<Reset match={token} onSubmit={handleSubmit} />);
+    wrapper.find("form").simulate("submit");
+    moxios.wait();
+  });
+
+  it("Handles handleChange on submit ", () => {
+    let handleChange = sinon.spy;
+    let wrapper = mount(<Reset match={token} onChange={handleChange} />);
+    wrapper.find("#inputPassword").simulate("change");
   });
 });
