@@ -17,6 +17,7 @@ class UpdateBusinessProfile extends Component {
   };
   componentDidMount() {
     const businessId = this.props.match.params.id;
+    console.log(this.props)
     axios
       .get(localApi+"businesses/" + businessId, {
         headers: {
@@ -25,7 +26,6 @@ class UpdateBusinessProfile extends Component {
         }
       })
       .then(response => {
-        console.log(response.data);
         const business = response.data;
         this.setState({
           businessName: business.name,

@@ -37,7 +37,10 @@
       "!src/App.test.js",
       "!src/App.js",
       "!src/utilities/privateRoute.js",
-      "!src/tests/__snapshots__/***"
+      "!src/tests/__snapshots__/***",
+      "!src/utilities/auth.js",
+      "!src/index.js",
+      "!src/Components/Reset.js"
     ]
   }
 }

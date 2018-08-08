@@ -20,6 +20,7 @@ class Businesses extends Component {
 
   componentDidMount() {
     let queryType, query;
+    console.log(this.props);
     if (this.props.location.searchProps) {
       queryType = this.props.location.searchProps.queryType;
       query = this.props.location.searchProps.query;

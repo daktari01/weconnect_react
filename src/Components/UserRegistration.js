@@ -43,7 +43,7 @@ class UserRegistration extends Component {
       })
       .then(response => {
         console.log(response.data);
-        toast.success("Registration successful");
+        toast.success("Registration successful. Go to your email to activate your account");
         return <Redirect to="/login" />;
       })
       .catch(error => {

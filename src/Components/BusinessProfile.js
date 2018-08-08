@@ -27,6 +27,7 @@ class BusinessProfile extends Component {
     this.deleteToggle = this.deleteToggle.bind(this);
   }
   componentDidMount() {
+    console.log(this.props)
     const businessId = this.props.match.params.id;
     axios
       .get(localApi + "businesses/" + businessId, {

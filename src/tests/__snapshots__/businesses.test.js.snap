@@ -234,3 +234,138 @@ exports[`RegisterBusiness component RegisterBusiness coponent renders successful
   <Footer />
 </div>
 `;
+
+exports[`UpdateBusinessProfile component UpdateBusinessProfile renders successfully 1`] = `
+<div>
+  <section
+    id="body"
+  >
+    <NavBar />
+    <div
+      className="container col-min-6"
+      id="loginContainer"
+    >
+      <div
+        className="wrapper"
+        id="loginWrapper"
+      >
+        <form>
+          <div
+            className="col-sm-12"
+            id="loginLogo"
+          >
+            <img
+              alt="logo"
+              className="img-fluid"
+              src="weConnect.png"
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="loginFName"
+            >
+              Business Name
+            </label>
+            <input
+              className="form-control"
+              id="businessNameInput"
+              name="businessName"
+              onChange={[Function]}
+              placeholder="Enter business name"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="loginEmail"
+            >
+              Select Category
+            </label>
+            <select
+              className="custom-select"
+              id="inputGroupSelectBusiness"
+              onChange={[Function]}
+            >
+              <option
+                value="IT"
+              >
+                IT
+              </option>
+              <option
+                value="Agribusiness"
+              >
+                Agribusiness
+              </option>
+              <option
+                value="Travel"
+              >
+                Travel
+              </option>
+              <option
+                value="Hospitality"
+              >
+                Hospitality
+              </option>
+              <option
+                value="Fashion"
+              >
+                Fashion
+              </option>
+            </select>
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="loginEmail"
+            >
+              Business Location
+            </label>
+            <input
+              className="form-control"
+              id="businessLocationInput"
+              name="businessLocation"
+              onChange={[Function]}
+              placeholder="Enter business location"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="loginEmail"
+            >
+              Web Address
+            </label>
+            <input
+              className="form-control"
+              id="webAddressInput"
+              name="webAddress"
+              onChange={[Function]}
+              placeholder="Enter web address"
+              type="text"
+              value=""
+            />
+          </div>
+          <button
+            className="btn btn-primary btn-block"
+            onClick={[Function]}
+            type="submit"
+          >
+            Update
+          </button>
+          <br />
+        </form>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</div>
+`;
