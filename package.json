@@ -41,8 +41,7 @@
       "!src/utilities/privateRoute.js",
       "!src/tests/__snapshots__/***",
       "!src/utilities/auth.js",
-      "!src/index.js",
-      "!src/Components/Reset.js"
+      "!src/index.js"
     ]
   }
 }

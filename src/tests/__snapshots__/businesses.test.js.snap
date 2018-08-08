@@ -1,5 +1,138 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`BusinessProfile component BusinessProfile component renders successfully 1`] = `
+<div>
+  <section
+    id="body"
+  >
+    <NavBar />
+    <div
+      className="no-business white-bg"
+    >
+      <br />
+      <br />
+      <br />
+      <h4>
+        There are no businesses matching this query.
+      </h4>
+      <br />
+      <a
+        className="btn btn-primary"
+        href="/businesses"
+      >
+        See all businesses
+      </a>
+    </div>
+  </section>
+  <Footer />
+</div>
+`;
+
+exports[`Businesses component Businesses component renders successfully 1`] = `
+<div>
+  <section
+    id="body"
+  >
+    <NavBar />
+    <div
+      className="container"
+    >
+      <div
+        className="row"
+        id="search_business"
+      >
+        <form
+          className="flex-grow"
+          onSubmit={[Function]}
+        >
+          <div
+            className="input-group"
+          >
+            <select
+              className="custom-select"
+              id="inputGroupSelectBusiness"
+              name="search_item"
+            >
+              <option
+                value="q"
+              >
+                Business Name
+              </option>
+              <option
+                value="location"
+              >
+                Business Location
+              </option>
+              <option
+                value="category"
+              >
+                Business Category
+              </option>
+            </select>
+            <input
+              className="form-control"
+              id="search_input"
+              name="businessName"
+              placeholder="Enter Search Text"
+              type="text"
+            />
+            <div
+              className="input-group-append"
+            >
+              <button
+                className="btn btn-outline-secondary"
+                id="btn_search_business"
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div
+        className="no-business white-bg"
+      >
+        <br />
+        <br />
+        <br />
+        <h4>
+          There are no businesses matching this query.
+        </h4>
+        <br />
+        <a
+          className="btn btn-primary"
+          href="/businesses"
+        >
+          See all businesses
+        </a>
+      </div>
+    </div>
+    <br />
+    <div
+      className="row mypagination h-100 justify-content-center align-items-center"
+    >
+      <t
+        initialPage={1}
+        items={Array []}
+        labels={
+          Object {
+            "first": "First",
+            "last": "Last",
+            "next": "Next",
+            "previous": "Previous",
+          }
+        }
+        onChangePage={[Function]}
+        pageSize={6}
+        style="margin: 0px 10px 10px 10px;padding: 0px;display: inline-block;"
+      />
+    </div>
+  </section>
+  <Footer />
+</div>
+`;
+
 exports[`MyBusinesses component MyBusinesses component renders successfully 1`] = `
 <div>
   <section

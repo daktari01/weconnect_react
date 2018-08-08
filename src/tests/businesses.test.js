@@ -29,27 +29,32 @@ describe("UpdateBusinessProfile component", () => {
 });
 
 describe("MyBusinesses component", () => {
-  const prop= {
-    queryType: "q",
-    fireRedirect: false,
-    query: "",
-    activeTab: "q",
-  };
-  const wrapper = shallow(<MyBusinesses searchProps={prop} />);
+  
+  const wrapper = shallow(<MyBusinesses />);
   it("MyBusinesses component renders successfully", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
 });
 
 describe("Businesses component", () => {
-  const wrapper = shallow(<Businesses />);
+  const prop= {searchProps:{
+    queryType: "q",
+    query: "",
+  }
+};
+  const wrapper = shallow(<Businesses location={prop} />);
   it("Businesses component renders successfully", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
 });
 
 describe("BusinessProfile component", () => {
-  const wrapper = shallow(<BusinessProfile />);
+  const bid={
+    params: {
+      id: 1
+    }
+  };
+  const wrapper = shallow(<BusinessProfile match={bid} />);
   it("BusinessProfile component renders successfully", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

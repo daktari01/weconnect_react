@@ -29,21 +29,24 @@ describe("UserRegistration renders correctly", () => {
 });
 
 describe("UserSignIn renders correctly", () => {
-  const wrapper = shallow(<UserSignIn />);
+  const test_state = {
+    state: "james",
+  };
+  const wrapper = shallow(<UserSignIn location={test_state} />);
   it("Succeeds", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
 
   it("Handles handleSubmit on submit ", () => {
     let handleSubmit = sinon.spy;
-    let wrapper = mount(<UserSignIn onSubmit={handleSubmit} />);
+    let wrapper = mount(<UserSignIn location={test_state} onSubmit={handleSubmit} />);
     wrapper.find("form").simulate("submit");
     moxios.wait();
   });
 
   it("Handles handleChange on submit ", () => {
     let handleChange = sinon.spy;
-    let wrapper = mount(<UserSignIn onChange={handleChange} />);
+    let wrapper = mount(<UserSignIn location={test_state} onChange={handleChange} />);
     wrapper.find("#loginUsernameInput").simulate("change");
   });
 });
@@ -57,13 +60,12 @@ describe("ResetPassword renders correctly", () => {
 
 describe("Reset renders correctly", () => {
   const token = {
-    match: {
       params: {
         token:
           "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImphbWVzIiwiZXhwIjoxNTMzNjI5NzExfQ.8mPPduU60z1G8OuXz27AUEPql0ETLQ-_HoTvif3_hbQ"
       }
-    }
   };
+  const wrapper = shallow(<Reset match={token}/>);
   it("Succeeds", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
