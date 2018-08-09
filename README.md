@@ -12,10 +12,30 @@ The following instructions will get you a copy of WeConnect up and running on yo
 
 ## Prerequisites
 WeConnect application will require the following:
+- Python 3.4 or higher   
+- Pip
+- Git
+- Virtualenv
 - Nodejs
 - npm 
 
-## Installation
+## Installation of Flask API
+1. Clone the repoitory by running the following command on your terminal    
+`git clone https://github.com/daktari01/we_connect.git`   
+2. Navigate into the project folder   
+`cd we_connect`  
+3. Create a virtual environment and activate it   
+`virtualenv venv`   
+`source venv/bin/activate`   
+4. Install the requirements   
+`pip install -r requirements.txt`   
+5. Launch the application   
+`python3 run.py`   
+
+## Run The Tests for the Flask API
+`nosetests --with-coverage`
+
+## Installation of React Application
 1. Clone the repoitory by running the following command on your terminal.   
 `git clone https://github.com/daktari01/weconnect_react.git`   
 2. Navigate to the project folder.   
@@ -25,7 +45,7 @@ WeConnect application will require the following:
 4. Run the application.   
 `npm start`   
 
-## Testing the application
+## Testing the React application
 Run `npm test`
 
 ## License
