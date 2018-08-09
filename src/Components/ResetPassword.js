@@ -7,9 +7,9 @@ import Footer from "./Footer";
 import signInLogo from "../static/img/logos/weConnect.png";
 import { localApi } from "../utilities/api";
 
-  /**
-   * Handle ResetPassword class
-   */
+/**
+ * Handle ResetPassword class
+ */
 class ResetPassword extends Component {
   state = {
     email: ""
@@ -40,14 +40,13 @@ class ResetPassword extends Component {
           "Content-type": "application/json"
         }
       })
-      .then(response => {
-        console.log(response.data);
+      .then(() => {
         toast.success(
           "Almost there. Go to your email address for a password reset link."
         );
         return <Redirect to="/login" />;
       })
-      .catch(error => {
+      .catch(() => {
         toast.error("Reset password unsuccessful. Please try again");
       });
   };
@@ -76,10 +75,7 @@ class ResetPassword extends Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-block"
-                >
+                <button type="submit" className="btn btn-primary btn-block">
                   Reset Password
                 </button>
                 <br />

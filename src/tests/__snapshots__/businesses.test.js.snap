@@ -293,26 +293,26 @@ exports[`RegisterBusiness component RegisterBusiness coponent renders successful
             </label>
             <select
               className="custom-select"
-              id="inputGroupSelectBusiness"
+              name="businessCategoryInput"
               onChange={[Function]}
             >
               <option
-                value="it"
+                value="IT"
               >
                 IT
               </option>
               <option
-                value="agribusiness"
+                value="Agribusiness"
               >
                 Agribusiness
               </option>
               <option
-                value="travel"
+                value="Travel"
               >
                 Travel
               </option>
               <option
-                value="hospitality"
+                value="Hospitality"
               >
                 Hospitality
               </option>
@@ -424,7 +424,6 @@ exports[`UpdateBusinessProfile component UpdateBusinessProfile renders successfu
             </label>
             <select
               className="custom-select"
-              id="inputGroupSelectBusiness"
               onChange={[Function]}
             >
               <option

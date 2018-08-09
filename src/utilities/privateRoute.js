@@ -1,6 +1,6 @@
 import React from "react";
 import  { Redirect, Route } from "react-router-dom";
-// import { appAuth } from './auth';
+import PropTypes from "prop-types";
 
 export const PrivateRoute = ({ component: Component, ...rest,  isAuthenticated}) => (
   <Route {...rest} render={props => (
@@ -14,3 +14,8 @@ export const PrivateRoute = ({ component: Component, ...rest,  isAuthenticated})
     )
   )}/>
 );
+PrivateRoute.propTypes = {
+  isAuthenticated: PropTypes.bool,
+  location: PropTypes.object,
+  component: PropTypes.element
+};

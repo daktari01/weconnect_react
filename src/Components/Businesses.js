@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import SingleBusiness from "./SingleBusiness";
 import JwPagination from "jw-react-pagination";
 import { localApi } from "../utilities/api";
+import { toast } from "react-toastify";
 
 /**
  * Fetches all businesses
@@ -23,7 +25,6 @@ class Businesses extends Component {
 
   componentDidMount() {
     let queryType, query;
-    console.log(this.props);
     if (this.props.location.searchProps) {
       queryType = this.props.location.searchProps.queryType;
       query = this.props.location.searchProps.query;
@@ -33,7 +34,7 @@ class Businesses extends Component {
 
   /**
    * Handles pagination
-   * @param pageOfItems 
+   * @param pageOfItems
    */
   onChangePage(pageOfItems) {
     this.setState({
@@ -51,8 +52,10 @@ class Businesses extends Component {
         const businesses = response.data.businesses;
         this.setState({ businesses });
       })
-      .catch(error => {
-        console.log(error);
+      .catch( () => {
+        toast.error(
+          "WeConnect was unable to carry out search. Check your query and try again."
+        );
       });
   };
 
@@ -104,7 +107,7 @@ class Businesses extends Component {
               </form>
             </div>
             {/**
-            Render single business  */}
+             Render single business  */}
             {this.state.pageOfItems.length > 0 ? (
               <div className="row">
                 {this.state.pageOfItems.map(business => (
@@ -119,7 +122,7 @@ class Businesses extends Component {
                 <h4>There are no businesses matching this query.</h4>
                 <br />
                 <a className="btn btn-primary" href="/businesses">
-                See all businesses
+                  See all businesses
                 </a>
               </div>
             )}
@@ -139,4 +142,8 @@ class Businesses extends Component {
     );
   }
 }
+
+Businesses.propTypes = {
+  location: PropTypes.object
+};
 export default Businesses;

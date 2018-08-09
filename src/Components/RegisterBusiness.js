@@ -5,6 +5,7 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 import logo from "../static/img/logos/weConnect.png";
 import { localApi } from "../utilities/api";
+import { toast } from "react-toastify";
 
 /**
  * Handle RegisterBusiness component
@@ -12,7 +13,7 @@ import { localApi } from "../utilities/api";
 class RegisterBusiness extends Component {
   state = {
     businessName: "",
-    businessCategory: "travel",
+    businessCategory: "",
     businessLocation: "",
     webAddress: "",
     businessId: "",
@@ -24,9 +25,9 @@ class RegisterBusiness extends Component {
    */
   handleChange = event => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
+      businessCategory: this.menu.value
     });
-    console.log(this.state);
   };
 
   /**
@@ -52,11 +53,10 @@ class RegisterBusiness extends Component {
       })
       .then(response => {
         window.location.reload();
-        console.log(response.data);
         this.setState({ businessId: response.data.id, fireRedirect: true });
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
+        toast.error("WeConnect was unable to register your business. Check the input fields and try again.");
       });
   };
   render() {
@@ -87,14 +87,15 @@ class RegisterBusiness extends Component {
                   <label htmlFor="loginEmail">Select Category</label>
                   <select
                     className="custom-select"
-                    id="inputGroupSelectBusiness"
+                    name="businessCategoryInput"
+                    ref={input => (this.menu = input)}
                     value={this.state.value}
                     onChange={this.handleChange}
                   >
-                    <option value="it">IT</option>
-                    <option value="agribusiness">Agribusiness</option>
-                    <option value="travel">Travel</option>
-                    <option value="hospitality">Hospitality</option>
+                    <option value="IT">IT</option>
+                    <option value="Agribusiness">Agribusiness</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Hospitality">Hospitality</option>
                   </select>
                 </div>
                 <div className="form-group">
@@ -121,10 +122,7 @@ class RegisterBusiness extends Component {
                     placeholder="Enter web address"
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-block"
-                >
+                <button type="submit" className="btn btn-primary btn-block">
                   Register
                 </button>
                 <br />

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import { Redirect } from "react-router-dom";
 import NavBar from "./NavBar";
@@ -49,8 +50,7 @@ class UserSignIn extends Component {
         localStorage.setItem("isAuthenticated", true);
         this.setState({ fireRedirect: true });
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
         toast.error("Login unsuccessful. Please try again");
       });
   };
@@ -93,10 +93,7 @@ class UserSignIn extends Component {
                   />
                 </div>
                 <br />
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-block"
-                >
+                <button type="submit" className="btn btn-primary btn-block">
                   Login
                 </button>
                 <br />
@@ -116,5 +113,7 @@ class UserSignIn extends Component {
     );
   }
 }
-
+UserSignIn.propTypes = {
+  location: PropTypes.object
+};
 export default UserSignIn;
