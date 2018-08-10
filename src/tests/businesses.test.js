@@ -1,4 +1,4 @@
-import Enzyme, { shallow, render, mount } from "enzyme";
+import { shallow, mount } from "enzyme";
 import React from "react";
 import RegisterBusiness from "../Components/RegisterBusiness";
 import MyBusinesses from "../Components/MyBusinesses";
@@ -72,8 +72,8 @@ describe("Businesses component", () => {
   const prop= {searchProps:{
     queryType: "q",
     query: "",
-  }
-};
+  }};
+  
   const wrapper = shallow(<Businesses location={prop} />);
   it("Businesses component renders successfully", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();

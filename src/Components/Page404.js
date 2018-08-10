@@ -28,9 +28,14 @@ class Page404 extends Component {
                     <div id="text404" className="align-middle">
                       <h1>404</h1>
                       <h3>Page Not Found</h3>
-                      <h4>The page you are looking for could be found on this server.</h4>
+                      <h4>
+                        The page you are looking for could be found on this
+                        server.
+                      </h4>
                       <br />
-                      <a href="/" className="btn btn-primary">Take Me Home</a>
+                      <a href="/" className="btn btn-primary">
+                        Take Me Home
+                      </a>
                     </div>
                   </div>
                 </div>

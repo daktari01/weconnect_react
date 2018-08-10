@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 import { toast } from "react-toastify";
 import { Redirect } from "react-router-dom";
 import NavBar from "./NavBar";
@@ -21,7 +22,6 @@ class Reset extends Component {
     this.setState({
       reset_token: reset_token
     });
-    console.log(reset_token);
   }
 
   /**
@@ -50,11 +50,11 @@ class Reset extends Component {
           "Content-type": "application/json"
         }
       })
-      .then(response => {
+      .then(() => {
         toast.success("Reset password successful. You can now login.");
         this.setState({ fireRedirect: true });
       })
-      .catch(error => {
+      .catch(() => {
         toast.error("Reset password unsuccessful. Please try again");
       });
   };
@@ -115,5 +115,7 @@ class Reset extends Component {
     );
   }
 }
-
+Reset.propTypes = {
+  match: PropTypes.object,
+};
 export default Reset;

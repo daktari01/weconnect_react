@@ -1,4 +1,4 @@
-import Enzyme, { shallow, render, mount } from "enzyme";
+import { shallow, mount } from "enzyme";
 import React from "react";
 import UserRegistration from "../Components/UserRegistration";
 import UserSignIn from "../Components/UserSignIn";
@@ -73,10 +73,10 @@ describe("ResetPassword renders correctly", () => {
 
 describe("Reset renders correctly", () => {
   const token = {
-      params: {
-        token:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImphbWVzIiwiZXhwIjoxNTMzNjI5NzExfQ.8mPPduU60z1G8OuXz27AUEPql0ETLQ-_HoTvif3_hbQ"
-      }
+    params: {
+      token:
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImphbWVzIiwiZXhwIjoxNTMzNjI5NzExfQ.8mPPduU60z1G8OuXz27AUEPql0ETLQ-_HoTvif3_hbQ"
+    }
   };
   const wrapper = shallow(<Reset match={token}/>);
   it("Succeeds", () => {

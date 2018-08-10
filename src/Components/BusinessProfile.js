@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { Redirect, Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -33,7 +34,6 @@ class BusinessProfile extends Component {
    * Fetch a single business and its reviews
    */
   componentDidMount() {
-    console.log(this.props);
     const businessId = this.props.match.params.id;
     axios
       .get(localApi + "businesses/" + businessId, {
@@ -43,11 +43,10 @@ class BusinessProfile extends Component {
         }
       })
       .then(response => {
-        console.log(response.data);
         this.setState({ business: response.data });
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
+        toast.error("WeConnect was unable to fetch businesses.");
       });
     axios
       .get(localApi + "businesses/" + businessId + "/reviews", {
@@ -59,10 +58,9 @@ class BusinessProfile extends Component {
       .then(response => {
         const reviews = response.data.reviews;
         this.setState({ reviews });
-        console.log(reviews);
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
+        toast.error("WeConnect was unable to fetch reviews.");
       });
     const token = localStorage.getItem("access_token");
     if (token) {
@@ -72,7 +70,7 @@ class BusinessProfile extends Component {
 
   /**
    * Handles pagination of reviews
-   * @param pageOfItems 
+   * @param pageOfItems
    */
   onChangePage(pageOfItems) {
     this.setState({
@@ -125,13 +123,13 @@ class BusinessProfile extends Component {
           "x-access-token": access_token
         }
       })
-      .then(response => {
+      .then(() => {
         window.location.reload();
         toast.success("Review posted successfully");
         const path = this.props.history.location.pathname;
         this.props.history.replace(path);
       })
-      .catch(error => {
+      .catch(() => {
         toast.error("WeConnect was unable to post your review. Try again");
       });
     this.toggle();
@@ -152,22 +150,19 @@ class BusinessProfile extends Component {
           "x-access-token": access_token
         }
       })
-      .then(response => {
+      .then(() => {
         window.location.reload();
         toast.success("Business deleted successfully");
         this.setState({ fireRedirect: true });
       })
-      .catch(error => {
+      .catch(() => {
         toast.error("WeConnect was unable to delete business. Try again");
       });
     this.deleteToggle();
   };
   render() {
     const user_id = Number(localStorage.getItem("user_id"));
-    const { business, reviews, fireRedirect } = this.state;
-    const review = reviews.map(review => (
-      <SingleReview review={review} key={review.review_id} />
-    ));
+    const { business, fireRedirect } = this.state;
     return (
       <div>
         <section id="body">
@@ -374,4 +369,9 @@ class BusinessProfile extends Component {
     );
   }
 }
+BusinessProfile.propTypes = {
+  match: PropTypes.object,
+  history: PropTypes.object,
+  className: PropTypes.string
+};
 export default BusinessProfile;

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import SingleBusiness from "./SingleBusiness";
@@ -25,7 +26,7 @@ class MyBusinesses extends Component {
   componentDidMount() {
     const access_token = localStorage.getItem("access_token");
     axios
-      .get(localApi+"my-businesses", {
+      .get(localApi + "my-businesses", {
         headers: {
           Accept: "application/json",
           "Content-type": "application/json",
@@ -36,8 +37,8 @@ class MyBusinesses extends Component {
         const businesses = response.data.businesses;
         this.setState({ businesses });
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
+        toast.error("WeConnect was unable to fetch your businesses.");
       });
   }
   onChangePage(pageOfItems) {
@@ -76,8 +77,8 @@ class MyBusinesses extends Component {
         const businesses = response.data.businesses;
         this.setState({ businesses });
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
+        toast.error("WeConnect was unable to perform search.");
       });
   };
 
@@ -135,7 +136,7 @@ class MyBusinesses extends Component {
                 <h4>There are no businesses matching this query.</h4>
                 <br />
                 <a className="btn btn-primary" href="/businesses">
-                See all businesses
+                  See all businesses
                 </a>
               </div>
             )}

@@ -26,7 +26,7 @@ class Home extends Component {
       queryType: "q",
       fireRedirect: false,
       query: "",
-      activeTab: "q",
+      activeTab: "q"
     };
   }
 
@@ -49,7 +49,7 @@ class Home extends Component {
 
   /**
    * Handle the search box
-   * @param tab 
+   * @param tab
    */
   toggle(tab) {
     if (this.state.activeTab !== tab) {

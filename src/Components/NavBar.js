@@ -47,9 +47,8 @@ class NavBar extends Component {
         localStorage.removeItem("access_token");
         localStorage.removeItem("user_id");
         localStorage.removeItem("isAuthenticated");
-        console.log(this.state.logged_in);
       })
-      .catch(error => {
+      .catch(() => {
         toast.error("Log out unsuccessful. Please try again");
       });
   };
@@ -93,7 +92,12 @@ class NavBar extends Component {
               </ul>
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <a className="nav-link" id="logout" href="#" onClick={this.handleLogout}>
+                  <a
+                    className="nav-link"
+                    id="logout"
+                    href="#"
+                    onClick={this.handleLogout}
+                  >
                     Logout
                   </a>
                 </li>

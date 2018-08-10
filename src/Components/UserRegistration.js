@@ -50,12 +50,13 @@ class UserRegistration extends Component {
           "Content-type": "application/json"
         }
       })
-      .then(response => {
-        console.log(response.data);
-        toast.success("Registration successful. Go to your email to activate your account");
+      .then(() => {
+        toast.success(
+          "Registration successful. Go to your email to activate your account"
+        );
         return <Redirect to="/login" />;
       })
-      .catch(error => {
+      .catch(() => {
         toast.error("Registration unsuccessful. Please try again");
       });
   };
@@ -147,10 +148,7 @@ class UserRegistration extends Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-block"
-                >
+                <button type="submit" className="btn btn-primary btn-block">
                   Register
                 </button>
                 <p>

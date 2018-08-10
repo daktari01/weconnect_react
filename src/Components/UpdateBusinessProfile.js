@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
@@ -24,9 +25,8 @@ class UpdateBusinessProfile extends Component {
    */
   componentDidMount() {
     const businessId = this.props.match.params.id;
-    console.log(this.props);
     axios
-      .get(localApi+"businesses/" + businessId, {
+      .get(localApi + "businesses/" + businessId, {
         headers: {
           Accept: "application/json",
           "Content-type": "application/json"
@@ -41,8 +41,8 @@ class UpdateBusinessProfile extends Component {
           webAddress: business.web_address
         });
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
+        toast.error("WeConnect was unable to fetch the business.");
       });
   }
 
@@ -51,7 +51,8 @@ class UpdateBusinessProfile extends Component {
    */
   handleChange = event => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
+      businessCategory: this.menu.value
     });
   };
 
@@ -77,15 +78,15 @@ class UpdateBusinessProfile extends Component {
           "x-access-token": access_token
         }
       })
-      .then(response => {
+      .then(() => {
         toast.success(newBusiness.name + " updated successfully");
         this.setState({ fireRedirect: true });
       })
-      .catch(error => {
+      .catch(() => {
         toast.error("WeConnect was unable to update " + newBusiness.name);
       });
   };
-  
+
   render() {
     const { fireRedirect } = this.state;
     const businessId = this.props.match.params.id;
@@ -115,7 +116,7 @@ class UpdateBusinessProfile extends Component {
                   <label htmlFor="loginEmail">Select Category</label>
                   <select
                     className="custom-select"
-                    id="inputGroupSelectBusiness"
+                    ref={input => (this.menu = input)}
                     onChange={() => this.handleChange}
                     defaultValue={this.state.category}
                   >
@@ -150,10 +151,7 @@ class UpdateBusinessProfile extends Component {
                     placeholder="Enter web address"
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-block"
-                >
+                <button type="submit" className="btn btn-primary btn-block">
                   Update
                 </button>
                 <br />
@@ -167,4 +165,7 @@ class UpdateBusinessProfile extends Component {
     );
   }
 }
+UpdateBusinessProfile.propTypes = {
+  match: PropTypes.object
+};
 export default UpdateBusinessProfile;
