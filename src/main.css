@@ -1,0 +1,245 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  padding-bottom: 50px;
+  z-index: 0;
+}
+
+.footer > .container > .row {
+  padding: 10px 10px 10px 10px;
+  color: #2980ba;
+}
+#body {
+  background-image: url("./static/img/backgrounds/office-bg.jpg");
+  background-color: #dcdcdc;
+  min-height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.navbar-brand img {
+  max-height: 40px;
+}
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: #2980ba;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: #2980ba;
+}
+
+#loginWrapper {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 10 0;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  float: none;
+}
+.image404{
+  margin-top: 100px;
+}
+#loginContainer form {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 3px;
+  border: solid lightgrey 1px;
+  margin-top: 20px;
+  padding: 15px 20px 15px 20px;
+}
+#loginWrapper h3 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+#loginLogo img {
+  width: auto;
+  height: auto;
+  max-width: 300px;
+}
+#loginLogo {
+  margin-bottom: 15px;
+}
+#user_avatar {
+  max-height: 75px;
+  max-width: 75px;
+}
+#user_holder,
+#reviews {
+  margin-top: 35px;
+}
+#reviews h3 {
+  color: #2980ba;
+}
+#company_logo {
+  max-height: 150px;
+  max-width: 150px;
+}
+#search_business {
+  margin: 10px 30px 10px 30px;
+}
+#btn_search_business {
+  color: #2980ba;
+  border-color: #2980ba;
+}
+#btn_search_business:hover {
+  color: #fff;
+  background-color: #2980ba;
+}
+#inputGroupSelectBusiness,
+#search_input {
+  border-color: #2980ba;
+}
+#modalCompanyName {
+  padding-bottom: 10px;
+}
+#indexSearchBox {
+  padding: 20px 20px 20px 20px;
+  border: 1px solid #2980ba;
+  border-radius: 3px;
+  margin-top: 20%;
+}
+#indexSearchBox > .nav-tabs > .nav-item > a {
+  color: #2980ba;
+  border: 0px solid;
+  border-radius: 2px;
+}
+#indexSearchBox > .nav-tabs > .nav-item > a:hover,
+#indexSearchBox > .nav-tabs > .nav-item > .nav-link.active {
+  color: #fff;
+  background-color: #2980ba;
+}
+#indexSearchBox > .nav-tabs {
+  border-bottom: 0px solid;
+}
+#deleteBusiness{
+    position: relative;
+    right: 40%;
+}
+#img404{
+  max-width: 100%;
+}
+#text404{
+  text-align: center;
+  margin-top: 20%;
+}
+
+#text404 h1, h3, h4{
+  color: #2980ba;
+}
+.inputSearch {
+  color: #2980ba;
+  border-color: #2980ba;
+}
+.no-business{
+  text-align: center;
+  color: #2980ba;
+  padding-bottom: 40px;
+}
+
+label {
+  margin-bottom: 0rem;
+}
+.flex-grow{
+    flex: 1 0 auto;
+}
+
+.mypagination ul{
+    background-color: #fff;
+    color: #2980ba;
+    margin-left: auto;
+    margin-right: auto;
+}
+.pagination > li > a:active,
+.pagination > li > a:hover{
+    color: #fff;
+}
+.form-group {
+  margin-bottom: 0.8rem;
+}
+.white-bg {
+  background-color: white;
+}
+.top-row {
+  margin: 30px 0 15px 0;
+}
+.star-rating {
+  line-height: 45px;
+  font-size: 2em;
+  color: #2980ba;
+  text-align: center;
+}
+
+.star-rating .fa-star {
+  color: #2980ba;
+}
+
+.company_name {
+  padding: 10px 0 20px 0;
+  text-align: center;
+  color: #2980ba;
+}
+.modal_name {
+  color: #2980ba;
+}
+
+dl {
+  width: 100%;
+  overflow: hidden;
+  margin-left: 10px;
+  padding: 20px 5px 10px 5px;
+}
+dt,
+dd {
+  float: left;
+}
+dt {
+  width: 40%;
+}
+dd {
+  width: 60%;
+}
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.review-button {
+  text-align: center;
+  margin-bottom: 15px;
+  margin-left: 30px;
+}
+.search_item {
+  margin: 15px 5px 5px 5px;
+}
+.btnSearch {
+  color: #2980ba;
+  border-color: #2980ba;
+}
+.btnSearch:hover {
+  color: #fff;
+  background-color: #2980ba;
+  border-color: #2980ba;
+}
+footer {
+  border-top: 2px solid;
+  border-color: #2980ba;
+  position: relative;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+}
+.tab-pane {
+  padding-top: 10px;
+}

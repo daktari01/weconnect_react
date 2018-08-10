@@ -1,0 +1,385 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component renders footer successfully 1`] = `
+<footer
+  className="footer"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-12"
+      >
+        <span>
+          WeConnect ©2018. All rights reserved. Designed and maintained by Daktari Technologies.
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+`;
+
+exports[`Home renders correctly Succeeds 1`] = `
+<div>
+  <section
+    id="body"
+  >
+    <NavBar />
+    <div
+      className="container"
+    >
+      <div
+        className="d-flex searchContainer"
+        id="loginContainer"
+      >
+        <div
+          className="justify-content-center align-self-center"
+          id="loginWrapper"
+        >
+          <div
+            className="search-box white-bg"
+            id="indexSearchBox"
+          >
+            <Nav
+              tabs={true}
+              tag="ul"
+              vertical={false}
+            >
+              <NavItem
+                tag="li"
+              >
+                <NavLink
+                  className="active"
+                  onClick={[Function]}
+                  tag="a"
+                >
+                  Business Name
+                </NavLink>
+              </NavItem>
+              <NavItem
+                tag="li"
+              >
+                <NavLink
+                  className=""
+                  onClick={[Function]}
+                  tag="a"
+                >
+                  Business Location
+                </NavLink>
+              </NavItem>
+              <NavItem
+                tag="li"
+              >
+                <NavLink
+                  className=""
+                  onClick={[Function]}
+                  tag="a"
+                >
+                  Business Category
+                </NavLink>
+              </NavItem>
+            </Nav>
+            <TabContent
+              activeTab="q"
+              tag="div"
+            >
+              <TabPane
+                tabId="q"
+                tag="div"
+              >
+                <Row
+                  tag="div"
+                >
+                  <Col
+                    sm="12"
+                    tag="div"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <div
+                      aria-labelledby="pills-name-tab"
+                      className="tab-pane fade show active"
+                      id="pills-name"
+                      role="tabpanel"
+                    >
+                      <div
+                        className="input-group mb-3"
+                      >
+                        <input
+                          aria-describedby="basic-addon2"
+                          aria-label="pills-name-input"
+                          className="form-control inputSearch"
+                          name="inputName"
+                          onChange={[Function]}
+                          placeholder="Search business by name ..."
+                          type="text"
+                        />
+                        <div
+                          className="input-group-append"
+                        >
+                          <button
+                            className="btn btn-outline-secondary btnSearch"
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            Search
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+              </TabPane>
+              <TabPane
+                tabId="location"
+                tag="div"
+              >
+                <Row
+                  tag="div"
+                >
+                  <Col
+                    sm="12"
+                    tag="div"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <div
+                      aria-labelledby="pills-name-tab"
+                      className="tab-pane fade show active"
+                      id="pills-name"
+                      role="tabpanel"
+                    >
+                      <div
+                        className="input-group mb-3"
+                      >
+                        <input
+                          aria-describedby="basic-addon2"
+                          aria-label="pills-name-input"
+                          className="form-control inputSearch"
+                          name="inputLocation"
+                          onChange={[Function]}
+                          placeholder="Search business by location ..."
+                          type="text"
+                        />
+                        <div
+                          className="input-group-append"
+                        >
+                          <button
+                            className="btn btn-outline-secondary btnSearch"
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            Search
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+              </TabPane>
+              <TabPane
+                tabId="category"
+                tag="div"
+              >
+                <Row
+                  tag="div"
+                >
+                  <Col
+                    sm="12"
+                    tag="div"
+                    widths={
+                      Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ]
+                    }
+                  >
+                    <div
+                      aria-labelledby="pills-name-tab"
+                      className="tab-pane fade show active"
+                      id="pills-name"
+                      role="tabpanel"
+                    >
+                      <div
+                        className="input-group mb-3"
+                      >
+                        <input
+                          aria-describedby="basic-addon2"
+                          aria-label="pills-name-input"
+                          className="form-control inputSearch"
+                          name="inputCategory"
+                          onChange={[Function]}
+                          placeholder="Search business by category ..."
+                          type="text"
+                        />
+                        <div
+                          className="input-group-append"
+                        >
+                          <button
+                            className="btn btn-outline-secondary btnSearch"
+                            onClick={[Function]}
+                            type="button"
+                          >
+                            Search
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+              </TabPane>
+            </TabContent>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</div>
+`;
+
+exports[`NavBar renders correctly Succeeds 1`] = `
+<div
+  className="container"
+>
+  <nav
+    className="navbar navbar-expand-lg navbar-light bg-faded"
+  >
+    <a
+      className="navbar-brand"
+      href="/"
+    >
+      <img
+        alt="WeConnect logo"
+        className="logo"
+        src="weConnect.png"
+      />
+    </a>
+    <button
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      className="navbar-toggler"
+      data-target="#navbarNavDropdown"
+      data-toggle="collapse"
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      className="navbar-collapse collapse"
+      id="navbarNavDropdown"
+    >
+      <ul
+        className="navbar-nav ml-auto"
+      >
+        <li
+          className="nav-item"
+        >
+          <a
+            className="nav-link"
+            href="/login"
+          >
+            Login
+          </a>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <a
+            className="nav-link"
+            href="/register"
+          >
+            Register
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`Page404 renders correctly Succeeds 1`] = `
+<div>
+  <section
+    id="body"
+  >
+    <NavBar />
+    <div
+      className="container image404 col-min-6"
+      id="loginContainer"
+    >
+      <div
+        className="wrapper"
+      >
+        <div
+          className="card"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="col-sm-4"
+            >
+              <img
+                alt="page404"
+                className="img-fluid"
+                id="img404"
+                src="chimp404.jpg"
+              />
+            </div>
+            <div
+              className="col-sm-8"
+            >
+              <div
+                className="align-middle"
+                id="text404"
+              >
+                <h1>
+                  404
+                </h1>
+                <h3>
+                  Page Not Found
+                </h3>
+                <h4>
+                  The page you are looking for could be found on this server.
+                </h4>
+                <br />
+                <a
+                  className="btn btn-primary"
+                  href="/"
+                >
+                  Take Me Home
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</div>
+`;
